@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анкета за искуството со пристапност</title>
+  <style>
+    body {
+      font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+    }
+    .skip-link:focus {
+      position: static;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: #ffffff;
+    }
+
+    .lang-switch {
+      text-align: right;
+      font-size: 1rem;
+    }
+
+    fieldset {
+      border: 2px solid #767676;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      padding: 1rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.75rem 0 0.25rem;
+      font-weight: bold;
+    }
+
+    .choice label {
+      display: inline;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .choice {
+      margin: 0.5rem 0;
+    }
+
+    .other {
+      margin-top: 1rem;
+    }
+    .other label {
+      font-weight: normal;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      font-size: 1.125rem;
+      padding: 0.6rem;
+      border: 2px solid #767676;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+
+    a:focus,
+    input:focus,
+    textarea:focus,
+    button:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+
+    .hint {
+      font-weight: normal;
+      font-size: 1rem;
+      color: #444444;
+      margin: 0.25rem 0;
+    }
+
+    .project-intro {
+      border-left: 4px solid #003366;
+      background: #f2f6fa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      font-size: 1.25rem;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      margin-top: 1.5rem;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #0055cc; }
+
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#survey-form">Прескокни до формуларот на анкетата</a>
+
+  <p class="lang-switch"><a href="index.html">Промени јазик</a></p>
+
+  <header>
+    <h1>Анкета за искуството со пристапност</h1>
+    <p>
+      Ви благодариме за учеството. Оваа анкета има 23 прашања и трае околу
+      10 минути. Повеќето прашања се со повеќекратен избор. Прашањата
+      означени како "задолжително" мора да се одговорат пред испраќање.
+      Вашите одговори се доверливи; името и е-поштата се незадолжителни.
+    </p>
+  </header>
+
+  <main>
+    <form id="survey-form" novalidate>
+      <input type="hidden" name="language" value="mk">
+
+      <h2>За вас</h2>
+
+      <div>
+        <label for="name">Вашето име (незадолжително)</label>
+        <input type="text" id="name" name="name" autocomplete="name">
+      </div>
+
+      <div>
+        <label for="email">Вашата адреса за е-пошта (незадолжително)</label>
+        <p class="hint" id="email-hint">
+          Споделете ја само ако се согласувате да ве контактираме со
+          дополнителни прашања или за да ја испробате алатката подоцна.
+        </p>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint">
+      </div>
+
+      <div class="choice">
+        <input type="checkbox" id="follow-up" name="follow-up" value="yes" aria-describedby="follow-up-hint">
+        <label for="follow-up">
+          Да, може да ми испратите дополнителни прашања по е-пошта или да ме
+          поканите на интервју за производот што го градите.
+        </label>
+        <p class="hint" id="follow-up-hint">
+          Ако го означите ова поле, напишете ја вашата е-пошта погоре за да
+          можеме да ве контактираме.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>1. Која е вашата возрасна група? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="age-under-18" name="age" value="under-18" required>
+          <label for="age-under-18">Под 18</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-18-29" name="age" value="18-29">
+          <label for="age-18-29">18 до 29</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-30-49" name="age" value="30-49">
+          <label for="age-30-49">30 до 49</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-50-64" name="age" value="50-64">
+          <label for="age-50-64">50 до 64</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-65-plus" name="age" value="65+">
+          <label for="age-65-plus">65 или повеќе</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="country">2. Од која земја одговарате? (незадолжително)</label>
+        <input type="text" id="country" name="country" autocomplete="country-name">
+      </div>
+
+      <h2>За вашиот вид</h2>
+
+      <fieldset>
+        <legend>3. Како би го опишале вашиот вид денес? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="sight-none" name="sight-today" value="totally-blind" required>
+          <label for="sight-none">Целосна слепост</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-partial" name="sight-today" value="partially-blind">
+          <label for="sight-partial">Делумна слепост</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-private" name="sight-today" value="prefer-not-to-say">
+          <label for="sight-private">Претпочитам да не кажам</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Како би го опишале вашиот вид при раѓање? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="birth-blind" name="sight-birth" value="blind" required>
+          <label for="birth-blind">Слепост од раѓање</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-partial" name="sight-birth" value="partially-sighted">
+          <label for="birth-partial">Делумен вид при раѓање</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-sighted" name="sight-birth" value="fully-sighted">
+          <label for="birth-sighted">Целосен вид при раѓање</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-unsure" name="sight-birth" value="unsure">
+          <label for="birth-unsure">Не сум сигурен/на или претпочитам да не кажам</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Дали вашиот вид е стабилен или се менува? (незадолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="vision-stable" name="vision-change" value="stable">
+          <label for="vision-stable">Стабилен</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-declining" name="vision-change" value="gradually-changing">
+          <label for="vision-declining">Постепено се менува</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-varies" name="vision-change" value="varies">
+          <label for="vision-varies">Варира од ден на ден</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-unsure" name="vision-change" value="unsure">
+          <label for="vision-unsure">Не сум сигурен/на</label>
+        </div>
+      </fieldset>
+
+      <h2>Вашите алатки</h2>
+
+      <fieldset>
+        <legend>6. Кој читач на екран го користите најчесто? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="sr-voiceover" name="screenreader" value="voiceover" required>
+          <label for="sr-voiceover">VoiceOver (Apple)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-jaws" name="screenreader" value="jaws">
+          <label for="sr-jaws">JAWS</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-nvda" name="screenreader" value="nvda">
+          <label for="sr-nvda">NVDA</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-talkback" name="screenreader" value="talkback">
+          <label for="sr-talkback">TalkBack (Android)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-other" name="screenreader" value="other">
+          <label for="sr-other">Друг или ниеден</label>
+        </div>
+        <div class="other">
+          <label for="screenreader-other">Поинаков читач на екран? Напишете го тука. (незадолжително)</label>
+          <input type="text" id="screenreader-other" name="screenreader-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. Кои уреди ги користите редовно? Изберете сè што важи.</legend>
+        <div class="choice">
+          <input type="checkbox" id="dev-phone" name="devices" value="smartphone">
+          <label for="dev-phone">Паметен телефон</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-computer" name="devices" value="computer">
+          <label for="dev-computer">Десктоп или лаптоп компјутер</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-tablet" name="devices" value="tablet">
+          <label for="dev-tablet">Таблет</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-braille" name="devices" value="braille-display">
+          <label for="dev-braille">Брајов ред</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-notetaker" name="devices" value="braille-notetaker">
+          <label for="dev-notetaker">Брајов бележник (на пример BrailleNote или ElBraille)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-glasses" name="devices" value="smart-glasses">
+          <label for="dev-glasses">Паметни очила или носива камера (на пример Envision, OrCam или Meta очила)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-daisy" name="devices" value="daisy-player">
+          <label for="dev-daisy">DAISY или плеер за аудиокниги (на пример Victor Reader)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-smart-speaker" name="devices" value="smart-speaker">
+          <label for="dev-smart-speaker">Паметен звучник (на пример Alexa или Google Home)</label>
+        </div>
+        <div class="other">
+          <label for="devices-other">Друг уред што не го наведовме? Додајте го тука. (незадолжително)</label>
+          <input type="text" id="devices-other" name="devices-other">
+        </div>
+      </fieldset>
+
+      <h2>Учење на алатките</h2>
+
+      <fieldset>
+        <legend>8. Како научивте да го користите вашиот читач на екран? Изберете сè што важи.</legend>
+        <div class="choice">
+          <input type="checkbox" id="learn-training" name="learning" value="formal-training">
+          <label for="learn-training">Формална обука или програма за рехабилитација</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-self" name="learning" value="self-taught">
+          <label for="learn-self">Сам/а, со обиди и грешки</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-online" name="learning" value="online-resources">
+          <label for="learn-online">Онлајн туторијали, подкасти или видеа</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-people" name="learning" value="friends-family">
+          <label for="learn-people">Помош од пријатели, семејство или други слепи лица</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-school" name="learning" value="school-work">
+          <label for="learn-school">Преку училиште или работа</label>
+        </div>
+        <div class="other">
+          <label for="learning-other">Научивте на друг начин? Кажете ни тука. (незадолжително)</label>
+          <input type="text" id="learning-other" name="learning-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. Колку време помина додека читачот на екран ви стана удобен за користење? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="comfort-weeks" name="comfort-time" value="weeks" required>
+          <label for="comfort-weeks">Неколку недели</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-months" name="comfort-time" value="months">
+          <label for="comfort-months">Неколку месеци</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-year" name="comfort-time" value="about-a-year">
+          <label for="comfort-year">Околу една година</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-years" name="comfort-time" value="several-years">
+          <label for="comfort-years">Неколку години</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-never" name="comfort-time" value="still-not">
+          <label for="comfort-never">Сè уште не ми е сосема удобен</label>
+        </div>
+      </fieldset>
+
+      <h2>Секојдневно искуство</h2>
+
+      <fieldset>
+        <legend>10. Општо земено, колку лесно ви е да завршувате работи на интернет? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="ease-very-easy" name="difficulty" value="very-easy" required>
+          <label for="ease-very-easy">Многу лесно</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-easy" name="difficulty" value="easy">
+          <label for="ease-easy">Прилично лесно</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-neutral" name="difficulty" value="neutral">
+          <label for="ease-neutral">Ниту лесно ниту тешко</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-difficult" name="difficulty" value="difficult">
+          <label for="ease-difficult">Прилично тешко</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-very-difficult" name="difficulty" value="very-difficult">
+          <label for="ease-very-difficult">Многу тешко</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. Што работи добро со вашата сегашна поставеност? Изберете сè што важи.</legend>
+        <div class="choice">
+          <input type="checkbox" id="well-reading" name="works-well" value="reading">
+          <label for="well-reading">Читање статии и подолги текстови</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-messaging" name="works-well" value="messaging">
+          <label for="well-messaging">Е-пошта и пораки</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-familiar" name="works-well" value="familiar-sites">
+          <label for="well-familiar">Користење веб-страници и апликации што веќе ги знам</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-shopping" name="works-well" value="shopping">
+          <label for="well-shopping">Купување и плаќање</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-social" name="works-well" value="social-media">
+          <label for="well-social">Социјални мрежи</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-work" name="works-well" value="work-documents">
+          <label for="well-work">Документи и алатки за работа или учење</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. Што најчесто ви пречи? Изберете сè што важи.</legend>
+        <div class="choice">
+          <input type="checkbox" id="hard-unlabeled" name="barriers" value="unlabeled-elements">
+          <label for="hard-unlabeled">Копчиња, линкови или слики без ознака</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-layout" name="barriers" value="cluttered-layout">
+          <label for="hard-layout">Пренатрупани или збунувачки страници</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-popups" name="barriers" value="popups-ads">
+          <label for="hard-popups">Скокачки прозорци, банери за колачиња и реклами</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-captcha" name="barriers" value="captchas">
+          <label for="hard-captcha">CAPTCHA и проверки на идентитет</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-forms" name="barriers" value="forms">
+          <label for="hard-forms">Формулари и процеси на купување</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-dynamic" name="barriers" value="dynamic-content">
+          <label for="hard-dynamic">Содржина што се менува или се движи без предупредување</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-media" name="barriers" value="undescribed-media">
+          <label for="hard-media">Слики и видеа без опис</label>
+        </div>
+        <div class="other">
+          <label for="barriers-other">Друга пречка што ни побегна? Додајте ја тука. (незадолжително)</label>
+          <input type="text" id="barriers-other" name="barriers-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>13. Што генерално ви е потешко за користење? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="harder-web" name="harder" value="websites" required>
+          <label for="harder-web">Веб-страниците</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-apps" name="harder" value="mobile-apps">
+          <label for="harder-apps">Мобилните апликации</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-both" name="harder" value="both">
+          <label for="harder-both">Двете се подеднакво тешки</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-neither" name="harder" value="neither">
+          <label for="harder-neither">Двете главно работат добро</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>14. Колку често се откажувате од веб-страница или апликација затоа што не е пристапна? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="leave-daily" name="leave-frequency" value="daily" required>
+          <label for="leave-daily">Секој ден</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-weekly" name="leave-frequency" value="weekly">
+          <label for="leave-weekly">Неколку пати неделно</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-monthly" name="leave-frequency" value="monthly">
+          <label for="leave-monthly">Неколку пати месечно</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-rarely" name="leave-frequency" value="rarely">
+          <label for="leave-rarely">Ретко или никогаш</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="unusable">15. Има ли веб-страници или апликации што ви се целосно неупотребливи? (незадолжително)</label>
+        <p class="hint" id="unusable-hint">Наведете ги оние што ви паѓаат на ум и, ако се сеќавате, што ве спречува.</p>
+        <textarea id="unusable" name="unusable" rows="3" aria-describedby="unusable-hint"></textarea>
+      </div>
+
+      <div>
+        <label for="accessible-sites">16. Има ли веб-страници или апликации што работат особено добро за вас? (незадолжително)</label>
+        <p class="hint" id="accessible-sites-hint">Наведете ги омилените и, ако се сеќавате, што ги прави добри.</p>
+        <textarea id="accessible-sites" name="accessible-sites" rows="3" aria-describedby="accessible-sites-hint"></textarea>
+      </div>
+
+      <h2>Идеалното искуство</h2>
+
+      <fieldset>
+        <legend>17. Замислете дека пристапот до интернет работи совршено за вас. Кои промени би значеле најмногу? Изберете најмногу три.</legend>
+        <div class="choice">
+          <input type="checkbox" id="ideal-described" name="ideal" value="everything-described">
+          <label for="ideal-described">Сè на екранот се опишува јасно и автоматски</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-speed" name="ideal" value="same-speed">
+          <label for="ideal-speed">Да завршувам работи брзо како лице што гледа</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-clutter" name="ideal" value="skip-clutter">
+          <label for="ideal-clutter">Да одам директно до она што ми треба, без да се пробивам низ неред</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-reliable" name="ideal" value="works-everywhere">
+          <label for="ideal-reliable">Секоја страница и апликација едноставно да работи, без да зависи од програмерите</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-independent" name="ideal" value="no-sighted-help">
+          <label for="ideal-independent">Никогаш да не морам да барам помош од лице што гледа</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-natural" name="ideal" value="natural-interaction">
+          <label for="ideal-natural">Да зборувам природно со уредот наместо да памтам команди</label>
+        </div>
+        <div class="other">
+          <label for="ideal-other">Нешто друго што би значело повеќе? Додајте го тука. (незадолжително)</label>
+          <input type="text" id="ideal-other" name="ideal-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>18. Кои од овие работи мислите дека треба да се дизајнираат сосема поинаку за слепи лица, наместо да се закрпуваат за да бидат пристапни? Изберете сè што важи.</legend>
+        <div class="choice">
+          <input type="checkbox" id="redesign-captcha" name="redesign" value="captchas">
+          <label for="redesign-captcha">CAPTCHA и безбедносни проверки</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-checkout" name="redesign" value="checkout">
+          <label for="redesign-checkout">Онлајн купување и плаќање</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-social" name="redesign" value="social-feeds">
+          <label for="redesign-social">Каналите на социјалните мрежи</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-documents" name="redesign" value="documents-pdfs">
+          <label for="redesign-documents">Документи и PDF-датотеки</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-maps" name="redesign" value="maps-navigation">
+          <label for="redesign-maps">Мапи и навигација</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-kiosks" name="redesign" value="kiosks-touchscreens">
+          <label for="redesign-kiosks">Киосци на допир и машини за самопослужување</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-none" name="redesign" value="none">
+          <label for="redesign-none">Ниедна од овие - поправките за пристапност се доволни</label>
+        </div>
+        <div class="other">
+          <label for="redesign-other">Нешто друго што бара целосен редизајн? Додајте го тука. (незадолжително)</label>
+          <input type="text" id="redesign-other" name="redesign-other">
+        </div>
+      </fieldset>
+
+      <h2>За нашиот проект</h2>
+
+      <div class="project-intro">
+        <p>
+          Кратка напомена пред последните прашања: нашиот тим гради алатка
+          што користи вештачка интелигенција за да разбере што има на екранот
+          и да го претвори во јасно аудио, за да можете да користите
+          веб-страници и апликации на поедноставен и подиректен начин, дури и
+          кога не се направени со мисла за пристапност.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>19. Мислите ли дека ваква алатка би била корисна? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="useful-very" name="useful" value="very-useful" required>
+          <label for="useful-very">Многу корисна</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-somewhat" name="useful" value="somewhat-useful">
+          <label for="useful-somewhat">Донекаде корисна</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-unsure" name="useful" value="not-sure">
+          <label for="useful-unsure">Не сум сигурен/на - би сакал/а да знам повеќе</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-not" name="useful" value="not-useful">
+          <label for="useful-not">Веројатно не би ми била корисна</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>20. Ако работи добро, дали би ја користеле? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="use-main" name="would-use" value="as-main-tool" required>
+          <label for="use-main">Да, како главен начин за користење на моите уреди</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-alongside" name="would-use" value="alongside-screenreader">
+          <label for="use-alongside">Да, заедно со мојот читач на екран</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-try" name="would-use" value="would-try">
+          <label for="use-try">Можеби - прво би сакал/а да ја пробам</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-probably-not" name="would-use" value="probably-not">
+          <label for="use-probably-not">Веројатно не</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-no" name="would-use" value="no">
+          <label for="use-no">Не, задоволен/на сум со сегашната поставеност</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>21. Кога замислувате вештачка интелигенција што го опишува вашиот екран и ви помага да работите со него, што би ве загрижило? Изберете сè што важи.</legend>
+        <div class="choice">
+          <input type="checkbox" id="worry-mistakes" name="ai-concerns" value="mistakes">
+          <label for="worry-mistakes">Може погрешно да опише нешто без да знам</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-privacy" name="ai-concerns" value="privacy">
+          <label for="worry-privacy">Приватноста - вештачка интелигенција што ги гледа моите пораки, банкарство или лични податоци</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-control" name="ai-concerns" value="losing-control">
+          <label for="worry-control">Губење контрола - таа да одлучува за мене што е важно</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-speed" name="ai-concerns" value="too-slow">
+          <label for="worry-speed">Да биде побавна од мојот сегашен начин на работа</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-dependence" name="ai-concerns" value="dependence">
+          <label for="worry-dependence">Зависност од алатка што може да се расипе, да се промени или да згасне</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-cost" name="ai-concerns" value="cost">
+          <label for="worry-cost">Цената</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-none" name="ai-concerns" value="no-concerns">
+          <label for="worry-none">Ништо особено - со задоволство би ја пробал/а</label>
+        </div>
+        <div class="other">
+          <label for="ai-concerns-other">Друга загриженост? Кажете ни тука. (незадолжително)</label>
+          <input type="text" id="ai-concerns-other" name="ai-concerns-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>22. Ако вакви алатки го направат интернетот целосно пристапен за вас, што би се променило во вашиот живот? (задолжително)</legend>
+        <div class="choice">
+          <input type="radio" id="change-alot" name="life-change" value="a-lot" required>
+          <label for="change-alot">Многу - би ми отворило работи што сега ги одбегнувам или не можам да ги правам</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-work" name="life-change" value="mainly-work">
+          <label for="change-work">Главно мојата работа или студии</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-freetime" name="life-change" value="mainly-freetime">
+          <label for="change-freetime">Главно моето слободно време и хоби</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-little" name="life-change" value="not-much">
+          <label for="change-little">Не многу - веќе добро се снаоѓам со сегашната поставеност</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-unsure" name="life-change" value="unsure">
+          <label for="change-unsure">Тешко е да се каже</label>
+        </div>
+      </fieldset>
+
+      <h2>За крај</h2>
+
+      <div>
+        <label for="final-thoughts">23. Има ли нешто важно што не ве прашавме? (незадолжително)</label>
+        <p class="hint" id="final-hint">Било што - овој простор е ваш.</p>
+        <textarea id="final-thoughts" name="final-thoughts" rows="5" aria-describedby="final-hint"></textarea>
+      </div>
+
+      <button type="submit">Испрати ја анкетата</button>
+
+      <p class="status" role="status" aria-live="polite" id="form-status"></p>
+
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('survey-form');
+    const status = document.getElementById('form-status');
+
+    const requiredQuestions = [
+      { name: 'age', label: 'Прашање 1, возрасна група', focus: 'age-under-18' },
+      { name: 'sight-today', label: 'Прашање 3, вашиот вид денес', focus: 'sight-none' },
+      { name: 'sight-birth', label: 'Прашање 4, вашиот вид при раѓање', focus: 'birth-blind' },
+      { name: 'screenreader', label: 'Прашање 6, читач на екран', focus: 'sr-voiceover' },
+      { name: 'comfort-time', label: 'Прашање 9, време на приспособување', focus: 'comfort-weeks' },
+      { name: 'difficulty', label: 'Прашање 10, леснотија на интернет', focus: 'ease-very-easy' },
+      { name: 'harder', label: 'Прашање 13, веб-страници или апликации', focus: 'harder-web' },
+      { name: 'leave-frequency', label: 'Прашање 14, откажување од непристапни страници', focus: 'leave-daily' },
+      { name: 'useful', label: 'Прашање 19, дали алатката би била корисна', focus: 'useful-very' },
+      { name: 'would-use', label: 'Прашање 20, дали би ја користеле', focus: 'use-main' },
+      { name: 'life-change', label: 'Прашање 22, што би се променило во вашиот живот', focus: 'change-alot' }
+    ];
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const missing = requiredQuestions.filter(function (q) {
+        return !form.querySelector('input[name="' + q.name + '"]:checked');
+      });
+
+      if (missing.length > 0) {
+        status.textContent = 'Анкетата не е испратена. ' +
+          (missing.length > 1
+            ? missing.length + ' задолжителни прашања се без одговор.'
+            : '1 задолжително прашање е без одговор.') +
+          ' Првото е: ' + missing[0].label + '. Фокусот е преместен таму.';
+        document.getElementById(missing[0].focus).focus();
+        return;
+      }
+
+      const followUp = document.getElementById('follow-up');
+      const email = document.getElementById('email');
+      if (followUp.checked && !email.value.trim()) {
+        status.textContent = 'Анкетата не е испратена. Се согласивте да ве ' +
+          'контактираме, но полето за е-пошта е празно. Фокусот е преместен ' +
+          'на полето за е-пошта: пополнете го или отштиклирајте го полето за согласност.';
+        email.focus();
+        return;
+      }
+
+      const data = {};
+      new FormData(form).forEach(function (value, key) {
+        if (data[key] === undefined) {
+          data[key] = value;
+        } else if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      });
+
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      status.textContent = 'Вашата анкета се испраќа...';
+
+      fetch('api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        status.textContent = 'Ви благодариме! Вашата анкета е успешно испратена.';
+      }).catch(function () {
+        button.disabled = false;
+        status.textContent = 'Нешто тргна наопаку и анкетата не е испратена. ' +
+          'Обидете се повторно - вашите одговори се сè уште тука.';
+      });
+    });
+  </script>
+
+</body>
+</html>

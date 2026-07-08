@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Experience Survey - Choose your language</title>
+  <style>
+    body {
+      font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 { font-size: 1.75rem; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+    }
+
+    li {
+      margin: 0.75rem 0;
+    }
+
+    /* Big touch targets: the whole row is the link */
+    li a {
+      display: block;
+      padding: 1rem 1.25rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #003366;
+      background: #f2f6fa;
+      border: 2px solid #767676;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background: #003366;
+      color: #ffffff;
+    }
+
+    li a:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Accessibility Experience Survey</h1>
+    <p>Please choose the language you would like to answer the survey in.</p>
+  </header>
+
+  <main>
+    <nav aria-label="Survey languages">
+      <ul>
+        <li><a href="survey-en.html" lang="en" hreflang="en">English</a></li>
+        <li><a href="survey-es.html" lang="es" hreflang="es">Español</a></li>
+        <li><a href="survey-ca.html" lang="ca" hreflang="ca">Català</a></li>
+        <li><a href="survey-it.html" lang="it" hreflang="it">Italiano</a></li>
+        <li><a href="survey-de.html" lang="de" hreflang="de">Deutsch</a></li>
+        <li><a href="survey-fr.html" lang="fr" hreflang="fr">Français</a></li>
+        <li><a href="survey-mk.html" lang="mk" hreflang="mk">Македонски</a></li>
+      </ul>
+    </nav>
+  </main>
+
+</body>
+</html>

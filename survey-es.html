@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuesta sobre experiencia de accesibilidad</title>
+  <style>
+    body {
+      font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+    }
+    .skip-link:focus {
+      position: static;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: #ffffff;
+    }
+
+    .lang-switch {
+      text-align: right;
+      font-size: 1rem;
+    }
+
+    fieldset {
+      border: 2px solid #767676;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      padding: 1rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.75rem 0 0.25rem;
+      font-weight: bold;
+    }
+
+    .choice label {
+      display: inline;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .choice {
+      margin: 0.5rem 0;
+    }
+
+    .other {
+      margin-top: 1rem;
+    }
+    .other label {
+      font-weight: normal;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      font-size: 1.125rem;
+      padding: 0.6rem;
+      border: 2px solid #767676;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+
+    a:focus,
+    input:focus,
+    textarea:focus,
+    button:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+
+    .hint {
+      font-weight: normal;
+      font-size: 1rem;
+      color: #444444;
+      margin: 0.25rem 0;
+    }
+
+    .project-intro {
+      border-left: 4px solid #003366;
+      background: #f2f6fa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      font-size: 1.25rem;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      margin-top: 1.5rem;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #0055cc; }
+
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#survey-form">Ir directamente al formulario de la encuesta</a>
+
+  <p class="lang-switch"><a href="index.html">Cambiar de idioma</a></p>
+
+  <header>
+    <h1>Encuesta sobre experiencia de accesibilidad</h1>
+    <p>
+      Gracias por participar. Esta encuesta tiene 23 preguntas y se completa
+      en unos 10 minutos. La mayoría de las preguntas son de opción múltiple.
+      Las preguntas marcadas como "obligatoria" deben responderse antes de
+      enviar. Tus respuestas son confidenciales; el nombre y el correo son
+      opcionales.
+    </p>
+  </header>
+
+  <main>
+    <form id="survey-form" novalidate>
+      <input type="hidden" name="language" value="es">
+
+      <h2>Sobre ti</h2>
+
+      <div>
+        <label for="name">Tu nombre (opcional)</label>
+        <input type="text" id="name" name="name" autocomplete="name">
+      </div>
+
+      <div>
+        <label for="email">Tu correo electrónico (opcional)</label>
+        <p class="hint" id="email-hint">
+          Compártelo solo si te parece bien que te contactemos con preguntas
+          de seguimiento o para probar la herramienta más adelante.
+        </p>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint">
+      </div>
+
+      <div class="choice">
+        <input type="checkbox" id="follow-up" name="follow-up" value="yes" aria-describedby="follow-up-hint">
+        <label for="follow-up">
+          Sí, podéis enviarme por correo más preguntas o invitarme a una
+          entrevista sobre el producto que estáis construyendo.
+        </label>
+        <p class="hint" id="follow-up-hint">
+          Si marcas esta casilla, escribe tu correo electrónico arriba para
+          que podamos contactarte.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>1. ¿Cuál es tu grupo de edad? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="age-under-18" name="age" value="under-18" required>
+          <label for="age-under-18">Menos de 18 años</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-18-29" name="age" value="18-29">
+          <label for="age-18-29">De 18 a 29</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-30-49" name="age" value="30-49">
+          <label for="age-30-49">De 30 a 49</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-50-64" name="age" value="50-64">
+          <label for="age-50-64">De 50 a 64</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-65-plus" name="age" value="65+">
+          <label for="age-65-plus">65 o más</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="country">2. ¿Desde qué país respondes? (opcional)</label>
+        <input type="text" id="country" name="country" autocomplete="country-name">
+      </div>
+
+      <h2>Sobre tu visión</h2>
+
+      <fieldset>
+        <legend>3. ¿Cómo describirías tu visión actualmente? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="sight-none" name="sight-today" value="totally-blind" required>
+          <label for="sight-none">Ceguera total</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-partial" name="sight-today" value="partially-blind">
+          <label for="sight-partial">Ceguera parcial</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-private" name="sight-today" value="prefer-not-to-say">
+          <label for="sight-private">Prefiero no decirlo</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. ¿Cómo describirías tu visión al nacer? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="birth-blind" name="sight-birth" value="blind" required>
+          <label for="birth-blind">Ceguera de nacimiento</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-partial" name="sight-birth" value="partially-sighted">
+          <label for="birth-partial">Visión parcial al nacer</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-sighted" name="sight-birth" value="fully-sighted">
+          <label for="birth-sighted">Visión completa al nacer</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-unsure" name="sight-birth" value="unsure">
+          <label for="birth-unsure">No lo sé o prefiero no decirlo</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. ¿Tu visión es estable o está cambiando? (opcional)</legend>
+        <div class="choice">
+          <input type="radio" id="vision-stable" name="vision-change" value="stable">
+          <label for="vision-stable">Estable</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-declining" name="vision-change" value="gradually-changing">
+          <label for="vision-declining">Cambia gradualmente con el tiempo</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-varies" name="vision-change" value="varies">
+          <label for="vision-varies">Varía de un día a otro</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-unsure" name="vision-change" value="unsure">
+          <label for="vision-unsure">No lo sé</label>
+        </div>
+      </fieldset>
+
+      <h2>Tus herramientas</h2>
+
+      <fieldset>
+        <legend>6. ¿Qué lector de pantalla usas más a menudo? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="sr-voiceover" name="screenreader" value="voiceover" required>
+          <label for="sr-voiceover">VoiceOver (Apple)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-jaws" name="screenreader" value="jaws">
+          <label for="sr-jaws">JAWS</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-nvda" name="screenreader" value="nvda">
+          <label for="sr-nvda">NVDA</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-talkback" name="screenreader" value="talkback">
+          <label for="sr-talkback">TalkBack (Android)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-other" name="screenreader" value="other">
+          <label for="sr-other">Otro o ninguno</label>
+        </div>
+        <div class="other">
+          <label for="screenreader-other">¿Un lector de pantalla diferente? Escríbelo aquí. (opcional)</label>
+          <input type="text" id="screenreader-other" name="screenreader-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. ¿Qué dispositivos usas habitualmente? Marca todos los que correspondan.</legend>
+        <div class="choice">
+          <input type="checkbox" id="dev-phone" name="devices" value="smartphone">
+          <label for="dev-phone">Teléfono inteligente</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-computer" name="devices" value="computer">
+          <label for="dev-computer">Ordenador de sobremesa o portátil</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-tablet" name="devices" value="tablet">
+          <label for="dev-tablet">Tableta</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-braille" name="devices" value="braille-display">
+          <label for="dev-braille">Línea braille</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-notetaker" name="devices" value="braille-notetaker">
+          <label for="dev-notetaker">Anotador braille (por ejemplo BrailleNote o ElBraille)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-glasses" name="devices" value="smart-glasses">
+          <label for="dev-glasses">Gafas inteligentes o cámara portátil (por ejemplo Envision, OrCam o gafas Meta)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-daisy" name="devices" value="daisy-player">
+          <label for="dev-daisy">Reproductor DAISY o de audiolibros (por ejemplo Victor Reader)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-smart-speaker" name="devices" value="smart-speaker">
+          <label for="dev-smart-speaker">Altavoz inteligente (por ejemplo Alexa o Google Home)</label>
+        </div>
+        <div class="other">
+          <label for="devices-other">¿Otro dispositivo que no hemos incluido? Añádelo aquí. (opcional)</label>
+          <input type="text" id="devices-other" name="devices-other">
+        </div>
+      </fieldset>
+
+      <h2>Aprender a usar tus herramientas</h2>
+
+      <fieldset>
+        <legend>8. ¿Cómo aprendiste a usar tu lector de pantalla? Marca todas las que correspondan.</legend>
+        <div class="choice">
+          <input type="checkbox" id="learn-training" name="learning" value="formal-training">
+          <label for="learn-training">Formación formal o un programa de rehabilitación</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-self" name="learning" value="self-taught">
+          <label for="learn-self">Aprendí por mi cuenta, a base de prueba y error</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-online" name="learning" value="online-resources">
+          <label for="learn-online">Tutoriales en línea, pódcasts o vídeos</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-people" name="learning" value="friends-family">
+          <label for="learn-people">Ayuda de amistades, familia u otras personas ciegas</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-school" name="learning" value="school-work">
+          <label for="learn-school">En la escuela o en el trabajo</label>
+        </div>
+        <div class="other">
+          <label for="learning-other">¿Aprendiste de otra manera? Cuéntanoslo aquí. (opcional)</label>
+          <input type="text" id="learning-other" name="learning-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. ¿Cuánto tiempo pasó hasta que tu lector de pantalla te resultó cómodo? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="comfort-weeks" name="comfort-time" value="weeks" required>
+          <label for="comfort-weeks">Unas semanas</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-months" name="comfort-time" value="months">
+          <label for="comfort-months">Unos meses</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-year" name="comfort-time" value="about-a-year">
+          <label for="comfort-year">Alrededor de un año</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-years" name="comfort-time" value="several-years">
+          <label for="comfort-years">Varios años</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-never" name="comfort-time" value="still-not">
+          <label for="comfort-never">Todavía no me resulta del todo cómodo</label>
+        </div>
+      </fieldset>
+
+      <h2>Tu día a día</h2>
+
+      <fieldset>
+        <legend>10. En general, ¿qué tan fácil te resulta hacer cosas en la web? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="ease-very-easy" name="difficulty" value="very-easy" required>
+          <label for="ease-very-easy">Muy fácil</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-easy" name="difficulty" value="easy">
+          <label for="ease-easy">Bastante fácil</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-neutral" name="difficulty" value="neutral">
+          <label for="ease-neutral">Ni fácil ni difícil</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-difficult" name="difficulty" value="difficult">
+          <label for="ease-difficult">Bastante difícil</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-very-difficult" name="difficulty" value="very-difficult">
+          <label for="ease-very-difficult">Muy difícil</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. ¿Qué maneja bien tu configuración actual? Marca todo lo que corresponda.</legend>
+        <div class="choice">
+          <input type="checkbox" id="well-reading" name="works-well" value="reading">
+          <label for="well-reading">Leer artículos y textos largos</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-messaging" name="works-well" value="messaging">
+          <label for="well-messaging">Correo y mensajería</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-familiar" name="works-well" value="familiar-sites">
+          <label for="well-familiar">Navegar por webs y aplicaciones que ya conozco</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-shopping" name="works-well" value="shopping">
+          <label for="well-shopping">Compras y pagos</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-social" name="works-well" value="social-media">
+          <label for="well-social">Redes sociales</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-work" name="works-well" value="work-documents">
+          <label for="well-work">Documentos y herramientas de trabajo o estudio</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. ¿Qué es lo que más a menudo se interpone en tu camino? Marca todo lo que corresponda.</legend>
+        <div class="choice">
+          <input type="checkbox" id="hard-unlabeled" name="barriers" value="unlabeled-elements">
+          <label for="hard-unlabeled">Botones, enlaces o imágenes sin etiquetar</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-layout" name="barriers" value="cluttered-layout">
+          <label for="hard-layout">Páginas desordenadas o confusas</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-popups" name="barriers" value="popups-ads">
+          <label for="hard-popups">Ventanas emergentes, avisos de cookies y anuncios</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-captcha" name="barriers" value="captchas">
+          <label for="hard-captcha">CAPTCHA y verificaciones de identidad</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-forms" name="barriers" value="forms">
+          <label for="hard-forms">Formularios y procesos de compra</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-dynamic" name="barriers" value="dynamic-content">
+          <label for="hard-dynamic">Contenido que cambia o se mueve sin avisar</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-media" name="barriers" value="undescribed-media">
+          <label for="hard-media">Imágenes y vídeos sin descripción</label>
+        </div>
+        <div class="other">
+          <label for="barriers-other">¿Otra barrera que se nos ha escapado? Añádela aquí. (opcional)</label>
+          <input type="text" id="barriers-other" name="barriers-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>13. ¿Qué te resulta generalmente más difícil de usar? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="harder-web" name="harder" value="websites" required>
+          <label for="harder-web">Los sitios web</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-apps" name="harder" value="mobile-apps">
+          <label for="harder-apps">Las aplicaciones móviles</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-both" name="harder" value="both">
+          <label for="harder-both">Ambos son igual de difíciles</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-neither" name="harder" value="neither">
+          <label for="harder-neither">Ambos funcionan bastante bien</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>14. ¿Con qué frecuencia abandonas un sitio web o una aplicación por no ser accesible? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="leave-daily" name="leave-frequency" value="daily" required>
+          <label for="leave-daily">Cada día</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-weekly" name="leave-frequency" value="weekly">
+          <label for="leave-weekly">Varias veces por semana</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-monthly" name="leave-frequency" value="monthly">
+          <label for="leave-monthly">Varias veces al mes</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-rarely" name="leave-frequency" value="rarely">
+          <label for="leave-rarely">Rara vez o nunca</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="unusable">15. ¿Hay sitios web o aplicaciones que te resulten completamente inutilizables? (opcional)</label>
+        <p class="hint" id="unusable-hint">Nombra los que se te ocurran y, si lo recuerdas, qué es lo que te lo impide.</p>
+        <textarea id="unusable" name="unusable" rows="3" aria-describedby="unusable-hint"></textarea>
+      </div>
+
+      <div>
+        <label for="accessible-sites">16. ¿Hay sitios web o aplicaciones que funcionen especialmente bien para ti? (opcional)</label>
+        <p class="hint" id="accessible-sites-hint">Nombra tus favoritos y, si lo recuerdas, qué los hace buenos.</p>
+        <textarea id="accessible-sites" name="accessible-sites" rows="3" aria-describedby="accessible-sites-hint"></textarea>
+      </div>
+
+      <h2>La experiencia ideal</h2>
+
+      <fieldset>
+        <legend>17. Imagina que el acceso a internet funcionara perfectamente para ti. ¿Qué cambios importarían más? Elige hasta tres.</legend>
+        <div class="choice">
+          <input type="checkbox" id="ideal-described" name="ideal" value="everything-described">
+          <label for="ideal-described">Todo lo que hay en pantalla se describe con claridad y automáticamente</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-speed" name="ideal" value="same-speed">
+          <label for="ideal-speed">Hacer las cosas tan rápido como una persona vidente</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-clutter" name="ideal" value="skip-clutter">
+          <label for="ideal-clutter">Ir directamente a lo que necesito, sin abrirme paso entre el desorden</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-reliable" name="ideal" value="works-everywhere">
+          <label for="ideal-reliable">Que cada sitio y aplicación simplemente funcione, sin depender de que los desarrolladores lo hagan bien</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-independent" name="ideal" value="no-sighted-help">
+          <label for="ideal-independent">No necesitar nunca pedir ayuda a una persona vidente</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-natural" name="ideal" value="natural-interaction">
+          <label for="ideal-natural">Hablar con mi dispositivo de forma natural en lugar de memorizar comandos</label>
+        </div>
+        <div class="other">
+          <label for="ideal-other">¿Otra cosa que importaría más? Añádela aquí. (opcional)</label>
+          <input type="text" id="ideal-other" name="ideal-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>18. ¿Cuáles de estas cosas crees que deberían diseñarse de forma completamente diferente para personas ciegas, en lugar de parchearse para ser accesibles? Marca todas las que correspondan.</legend>
+        <div class="choice">
+          <input type="checkbox" id="redesign-captcha" name="redesign" value="captchas">
+          <label for="redesign-captcha">CAPTCHA y controles de seguridad</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-checkout" name="redesign" value="checkout">
+          <label for="redesign-checkout">Compras en línea y proceso de pago</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-social" name="redesign" value="social-feeds">
+          <label for="redesign-social">Los muros de las redes sociales</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-documents" name="redesign" value="documents-pdfs">
+          <label for="redesign-documents">Documentos y PDF</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-maps" name="redesign" value="maps-navigation">
+          <label for="redesign-maps">Mapas y navegación</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-kiosks" name="redesign" value="kiosks-touchscreens">
+          <label for="redesign-kiosks">Quioscos táctiles y máquinas de autoservicio</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-none" name="redesign" value="none">
+          <label for="redesign-none">Ninguna de estas - con arreglos de accesibilidad es suficiente</label>
+        </div>
+        <div class="other">
+          <label for="redesign-other">¿Otra cosa que necesite un rediseño completo? Añádela aquí. (opcional)</label>
+          <input type="text" id="redesign-other" name="redesign-other">
+        </div>
+      </fieldset>
+
+      <h2>Sobre nuestro proyecto</h2>
+
+      <div class="project-intro">
+        <p>
+          Una nota rápida antes de las últimas preguntas: nuestro equipo está
+          construyendo una herramienta que usa IA para entender lo que hay en
+          pantalla y convertirlo en audio claro, para que puedas interactuar
+          con webs y aplicaciones de una forma más simple y directa, incluso
+          cuando no se crearon pensando en la accesibilidad.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>19. ¿Crees que una herramienta así sería útil? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="useful-very" name="useful" value="very-useful" required>
+          <label for="useful-very">Muy útil</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-somewhat" name="useful" value="somewhat-useful">
+          <label for="useful-somewhat">Bastante útil</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-unsure" name="useful" value="not-sure">
+          <label for="useful-unsure">No lo sé - necesitaría saber más</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-not" name="useful" value="not-useful">
+          <label for="useful-not">Probablemente no me sería útil</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>20. Si funcionara bien, ¿la usarías? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="use-main" name="would-use" value="as-main-tool" required>
+          <label for="use-main">Sí, como mi forma principal de usar mis dispositivos</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-alongside" name="would-use" value="alongside-screenreader">
+          <label for="use-alongside">Sí, junto con mi lector de pantalla</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-try" name="would-use" value="would-try">
+          <label for="use-try">Quizá - querría probarla primero</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-probably-not" name="would-use" value="probably-not">
+          <label for="use-probably-not">Probablemente no</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-no" name="would-use" value="no">
+          <label for="use-no">No, estoy a gusto con mi configuración actual</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>21. Cuando imaginas una IA describiendo tu pantalla y ayudándote a interactuar con ella, ¿qué te preocuparía? Marca todo lo que corresponda.</legend>
+        <div class="choice">
+          <input type="checkbox" id="worry-mistakes" name="ai-concerns" value="mistakes">
+          <label for="worry-mistakes">Que describa las cosas mal sin que yo lo sepa</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-privacy" name="ai-concerns" value="privacy">
+          <label for="worry-privacy">La privacidad - que una IA vea mis mensajes, mi banca o mis datos personales</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-control" name="ai-concerns" value="losing-control">
+          <label for="worry-control">Perder el control - que decida por mí qué es importante</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-speed" name="ai-concerns" value="too-slow">
+          <label for="worry-speed">Que sea más lenta que mi forma de trabajar actual</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-dependence" name="ai-concerns" value="dependence">
+          <label for="worry-dependence">Depender de una herramienta que podría fallar, cambiar o desaparecer</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-cost" name="ai-concerns" value="cost">
+          <label for="worry-cost">El coste</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-none" name="ai-concerns" value="no-concerns">
+          <label for="worry-none">Nada en particular - me gustaría probarla</label>
+        </div>
+        <div class="other">
+          <label for="ai-concerns-other">¿Otra preocupación? Cuéntanosla aquí. (opcional)</label>
+          <input type="text" id="ai-concerns-other" name="ai-concerns-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>22. Si herramientas así hicieran internet totalmente accesible para ti, ¿qué cambiaría en tu vida? (obligatoria)</legend>
+        <div class="choice">
+          <input type="radio" id="change-alot" name="life-change" value="a-lot" required>
+          <label for="change-alot">Mucho - me abriría cosas que ahora evito o no puedo hacer</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-work" name="life-change" value="mainly-work">
+          <label for="change-work">Sobre todo mi trabajo o mis estudios</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-freetime" name="life-change" value="mainly-freetime">
+          <label for="change-freetime">Sobre todo mi tiempo libre y mis aficiones</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-little" name="life-change" value="not-much">
+          <label for="change-little">No mucho - ya me las arreglo bien con mi configuración actual</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-unsure" name="life-change" value="unsure">
+          <label for="change-unsure">Difícil de decir</label>
+        </div>
+      </fieldset>
+
+      <h2>Para terminar</h2>
+
+      <div>
+        <label for="final-thoughts">23. ¿Hay algo importante que no te hayamos preguntado? (opcional)</label>
+        <p class="hint" id="final-hint">Lo que sea - este espacio es tuyo.</p>
+        <textarea id="final-thoughts" name="final-thoughts" rows="5" aria-describedby="final-hint"></textarea>
+      </div>
+
+      <button type="submit">Enviar la encuesta</button>
+
+      <p class="status" role="status" aria-live="polite" id="form-status"></p>
+
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('survey-form');
+    const status = document.getElementById('form-status');
+
+    const requiredQuestions = [
+      { name: 'age', label: 'Pregunta 1, grupo de edad', focus: 'age-under-18' },
+      { name: 'sight-today', label: 'Pregunta 3, tu visión actual', focus: 'sight-none' },
+      { name: 'sight-birth', label: 'Pregunta 4, tu visión al nacer', focus: 'birth-blind' },
+      { name: 'screenreader', label: 'Pregunta 6, lector de pantalla', focus: 'sr-voiceover' },
+      { name: 'comfort-time', label: 'Pregunta 9, tiempo hasta sentirte a gusto', focus: 'comfort-weeks' },
+      { name: 'difficulty', label: 'Pregunta 10, facilidad para usar la web', focus: 'ease-very-easy' },
+      { name: 'harder', label: 'Pregunta 13, sitios web o aplicaciones', focus: 'harder-web' },
+      { name: 'leave-frequency', label: 'Pregunta 14, abandonar sitios inaccesibles', focus: 'leave-daily' },
+      { name: 'useful', label: 'Pregunta 19, si la herramienta sería útil', focus: 'useful-very' },
+      { name: 'would-use', label: 'Pregunta 20, si la usarías', focus: 'use-main' },
+      { name: 'life-change', label: 'Pregunta 22, qué cambiaría en tu vida', focus: 'change-alot' }
+    ];
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const missing = requiredQuestions.filter(function (q) {
+        return !form.querySelector('input[name="' + q.name + '"]:checked');
+      });
+
+      if (missing.length > 0) {
+        status.textContent = 'La encuesta no se ha enviado. ' +
+          (missing.length > 1
+            ? 'Quedan ' + missing.length + ' preguntas obligatorias sin responder.'
+            : 'Queda 1 pregunta obligatoria sin responder.') +
+          ' La primera es: ' + missing[0].label + '. El foco se ha movido a esa pregunta.';
+        document.getElementById(missing[0].focus).focus();
+        return;
+      }
+
+      const followUp = document.getElementById('follow-up');
+      const email = document.getElementById('email');
+      if (followUp.checked && !email.value.trim()) {
+        status.textContent = 'La encuesta no se ha enviado. Aceptaste que te ' +
+          'contactemos, pero el campo de correo electrónico está vacío. El foco ' +
+          'se ha movido al campo de correo: rellénalo o desmarca la casilla de seguimiento.';
+        email.focus();
+        return;
+      }
+
+      const data = {};
+      new FormData(form).forEach(function (value, key) {
+        if (data[key] === undefined) {
+          data[key] = value;
+        } else if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      });
+
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      status.textContent = 'Enviando tu encuesta...';
+
+      fetch('api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        status.textContent = '¡Gracias! Tu encuesta se ha enviado correctamente.';
+      }).catch(function () {
+        button.disabled = false;
+        status.textContent = 'Algo ha fallado y tu encuesta no se ha enviado. ' +
+          'Vuelve a intentarlo: tus respuestas siguen aquí.';
+      });
+    });
+  </script>
+
+</body>
+</html>
