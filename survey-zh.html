@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无障碍体验问卷</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    body {
+      font-family: 'Atkinson Hyperlegible', -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 1.625rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; margin-top: 2rem; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+    }
+    .skip-link:focus {
+      position: static;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: #ffffff;
+    }
+
+    .lang-switch {
+      text-align: right;
+      font-size: 1.25rem;
+    }
+
+    fieldset {
+      border: 2px solid #767676;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      padding: 1rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.75rem 0 0.25rem;
+      font-weight: bold;
+    }
+
+    .choice label {
+      display: inline;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .choice {
+      margin: 0.5rem 0;
+    }
+
+    .other {
+      margin-top: 1rem;
+    }
+    .other label {
+      font-weight: normal;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      font-size: 1.5rem;
+      padding: 0.6rem;
+      border: 2px solid #767676;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+
+    a:focus,
+    input:focus,
+    textarea:focus,
+    button:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+
+    .hint {
+      font-weight: normal;
+      font-size: 1.375rem;
+      color: #444444;
+      margin: 0.25rem 0;
+    }
+
+    .project-intro {
+      border-left: 4px solid #003366;
+      background: #f2f6fa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      font-size: 1.625rem;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      margin-top: 1.5rem;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #0055cc; }
+
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#survey-form">直接跳到问卷表单</a>
+
+  <p class="lang-switch"><a href="index.html">更换语言</a></p>
+
+  <header>
+    <h1>无障碍体验问卷</h1>
+    <p>
+      感谢您的参与。本问卷共有 23 个问题，大约需要 10 分钟完成。大多数问题为选择题。标有"必答"的问题需要回答后才能提交。您的回答将被保密；姓名和电子邮箱为选填。
+    </p>
+  </header>
+
+  <main>
+    <form id="survey-form" novalidate>
+      <input type="hidden" name="language" value="zh">
+
+      <h2>关于您</h2>
+
+      <div>
+        <label for="name">您的姓名（选填）</label>
+        <input type="text" id="name" name="name" autocomplete="name">
+      </div>
+
+      <div>
+        <label for="email">您的电子邮箱（选填）</label>
+        <p class="hint" id="email-hint">
+          只有在您愿意让我们就后续问题与您联系、或之后邀请您试用这款工具时，才需要填写。
+        </p>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint">
+      </div>
+
+      <div class="choice">
+        <input type="checkbox" id="follow-up" name="follow-up" value="yes" aria-describedby="follow-up-hint">
+        <label for="follow-up">
+          可以，你们可以通过电子邮件向我发送更多问题，或邀请我参加关于你们正在开发的产品的访谈。
+        </label>
+        <p class="hint" id="follow-up-hint">
+          如果勾选此项，请在上方填写您的电子邮箱，以便我们与您联系。
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>1. 您的年龄段是？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="age-under-18" name="age" value="under-18" required>
+          <label for="age-under-18">18 岁以下</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-18-29" name="age" value="18-29">
+          <label for="age-18-29">18 至 29 岁</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-30-49" name="age" value="30-49">
+          <label for="age-30-49">30 至 49 岁</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-50-64" name="age" value="50-64">
+          <label for="age-50-64">50 至 64 岁</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-65-plus" name="age" value="65+">
+          <label for="age-65-plus">65 岁及以上</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="country">2. 您在哪个国家填写本问卷？（选填）</label>
+        <input type="text" id="country" name="country" autocomplete="country-name">
+      </div>
+
+      <h2>关于您的视力</h2>
+
+      <fieldset>
+        <legend>3. 您如何描述自己目前的视力？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="sight-none" name="sight-today" value="totally-blind" required>
+          <label for="sight-none">全盲</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-partial" name="sight-today" value="partially-blind">
+          <label for="sight-partial">部分失明</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-private" name="sight-today" value="prefer-not-to-say">
+          <label for="sight-private">不愿透露</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. 您如何描述自己出生时的视力？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="birth-blind" name="sight-birth" value="blind" required>
+          <label for="birth-blind">出生时即失明</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-partial" name="sight-birth" value="partially-sighted">
+          <label for="birth-partial">出生时有部分视力</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-sighted" name="sight-birth" value="fully-sighted">
+          <label for="birth-sighted">出生时视力完好</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-unsure" name="sight-birth" value="unsure">
+          <label for="birth-unsure">不清楚或不愿透露</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. 您的视力是稳定的还是在变化？（选填）</legend>
+        <div class="choice">
+          <input type="radio" id="vision-stable" name="vision-change" value="stable">
+          <label for="vision-stable">稳定</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-declining" name="vision-change" value="gradually-changing">
+          <label for="vision-declining">随时间逐渐变化</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-varies" name="vision-change" value="varies">
+          <label for="vision-varies">每天都有波动</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-unsure" name="vision-change" value="unsure">
+          <label for="vision-unsure">不清楚</label>
+        </div>
+      </fieldset>
+
+      <h2>您使用的工具</h2>
+
+      <fieldset>
+        <legend>6. 您最常使用哪款屏幕阅读器？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="sr-voiceover" name="screenreader" value="voiceover" required>
+          <label for="sr-voiceover">VoiceOver（Apple）</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-jaws" name="screenreader" value="jaws">
+          <label for="sr-jaws">JAWS</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-nvda" name="screenreader" value="nvda">
+          <label for="sr-nvda">NVDA</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-talkback" name="screenreader" value="talkback">
+          <label for="sr-talkback">TalkBack（Android）</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-other" name="screenreader" value="other">
+          <label for="sr-other">其他或不使用</label>
+        </div>
+        <div class="other">
+          <label for="screenreader-other">使用其他屏幕阅读器？请写在这里。（选填）</label>
+          <input type="text" id="screenreader-other" name="screenreader-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. 您通常使用哪些设备？请选择所有适用项。</legend>
+        <div class="choice">
+          <input type="checkbox" id="dev-phone" name="devices" value="smartphone">
+          <label for="dev-phone">智能手机</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-computer" name="devices" value="computer">
+          <label for="dev-computer">台式机或笔记本电脑</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-tablet" name="devices" value="tablet">
+          <label for="dev-tablet">平板电脑</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-braille" name="devices" value="braille-display">
+          <label for="dev-braille">点显器（盲文显示器）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-notetaker" name="devices" value="braille-notetaker">
+          <label for="dev-notetaker">盲文记事本（例如 BrailleNote 或 ElBraille）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-glasses" name="devices" value="smart-glasses">
+          <label for="dev-glasses">智能眼镜或可穿戴摄像头（例如 Envision、OrCam 或 Meta 眼镜）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-daisy" name="devices" value="daisy-player">
+          <label for="dev-daisy">DAISY 或有声书播放器（例如 Victor Reader）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-smart-speaker" name="devices" value="smart-speaker">
+          <label for="dev-smart-speaker">智能音箱（例如 Alexa 或 Google Home）</label>
+        </div>
+        <div class="other">
+          <label for="devices-other">还有我们没列出的设备？请补充在这里。（选填）</label>
+          <input type="text" id="devices-other" name="devices-other">
+        </div>
+      </fieldset>
+
+      <h2>学习使用这些工具</h2>
+
+      <fieldset>
+        <legend>8. 您是如何学会使用屏幕阅读器的？请选择所有适用项。</legend>
+        <div class="choice">
+          <input type="checkbox" id="learn-training" name="learning" value="formal-training">
+          <label for="learn-training">正规培训或康复项目</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-self" name="learning" value="self-taught">
+          <label for="learn-self">自学，通过不断尝试和摸索</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-online" name="learning" value="online-resources">
+          <label for="learn-online">在线教程、播客或视频</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-people" name="learning" value="friends-family">
+          <label for="learn-people">朋友、家人或其他盲人朋友的帮助</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-school" name="learning" value="school-work">
+          <label for="learn-school">在学校或工作中</label>
+        </div>
+        <div class="other">
+          <label for="learning-other">通过其他方式学会的？请告诉我们。（选填）</label>
+          <input type="text" id="learning-other" name="learning-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. 您用了多长时间才对屏幕阅读器感到得心应手？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="comfort-weeks" name="comfort-time" value="weeks" required>
+          <label for="comfort-weeks">几周</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-months" name="comfort-time" value="months">
+          <label for="comfort-months">几个月</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-year" name="comfort-time" value="about-a-year">
+          <label for="comfort-year">大约一年</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-years" name="comfort-time" value="several-years">
+          <label for="comfort-years">好几年</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-never" name="comfort-time" value="still-not">
+          <label for="comfort-never">至今仍不算得心应手</label>
+        </div>
+      </fieldset>
+
+      <h2>您的日常</h2>
+
+      <fieldset>
+        <legend>10. 总体来说，您在网络上办事容易吗？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="ease-very-easy" name="difficulty" value="very-easy" required>
+          <label for="ease-very-easy">非常容易</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-easy" name="difficulty" value="easy">
+          <label for="ease-easy">比较容易</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-neutral" name="difficulty" value="neutral">
+          <label for="ease-neutral">一般</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-difficult" name="difficulty" value="difficult">
+          <label for="ease-difficult">比较困难</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-very-difficult" name="difficulty" value="very-difficult">
+          <label for="ease-very-difficult">非常困难</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. 您目前的配置在哪些方面表现良好？请选择所有适用项。</legend>
+        <div class="choice">
+          <input type="checkbox" id="well-reading" name="works-well" value="reading">
+          <label for="well-reading">阅读文章和长篇文字</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-messaging" name="works-well" value="messaging">
+          <label for="well-messaging">电子邮件和即时通讯</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-familiar" name="works-well" value="familiar-sites">
+          <label for="well-familiar">浏览我熟悉的网站和应用</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-shopping" name="works-well" value="shopping">
+          <label for="well-shopping">购物和支付</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-social" name="works-well" value="social-media">
+          <label for="well-social">社交媒体</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-work" name="works-well" value="work-documents">
+          <label for="well-work">工作或学习用的文档和工具</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. 最常妨碍您的是什么？请选择所有适用项。</legend>
+        <div class="choice">
+          <input type="checkbox" id="hard-unlabeled" name="barriers" value="unlabeled-elements">
+          <label for="hard-unlabeled">没有标签的按钮、链接或图片</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-layout" name="barriers" value="cluttered-layout">
+          <label for="hard-layout">杂乱或令人困惑的页面</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-popups" name="barriers" value="popups-ads">
+          <label for="hard-popups">弹窗、Cookie 提示和广告</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-captcha" name="barriers" value="captchas">
+          <label for="hard-captcha">CAPTCHA 验证码和身份验证</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-forms" name="barriers" value="forms">
+          <label for="hard-forms">表单和购买流程</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-dynamic" name="barriers" value="dynamic-content">
+          <label for="hard-dynamic">毫无提示就变化或移动的内容</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-media" name="barriers" value="undescribed-media">
+          <label for="hard-media">没有描述的图片和视频</label>
+        </div>
+        <div class="other">
+          <label for="barriers-other">还有我们遗漏的障碍？请补充在这里。（选填）</label>
+          <input type="text" id="barriers-other" name="barriers-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>13. 总体而言，哪种对您来说更难用？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="harder-web" name="harder" value="websites" required>
+          <label for="harder-web">网站</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-apps" name="harder" value="mobile-apps">
+          <label for="harder-apps">手机应用</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-both" name="harder" value="both">
+          <label for="harder-both">两者一样难</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-neither" name="harder" value="neither">
+          <label for="harder-neither">两者都还不错</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>14. 您多久会因为网站或应用不无障碍而放弃使用？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="leave-daily" name="leave-frequency" value="daily" required>
+          <label for="leave-daily">每天</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-weekly" name="leave-frequency" value="weekly">
+          <label for="leave-weekly">每周几次</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-monthly" name="leave-frequency" value="monthly">
+          <label for="leave-monthly">每月几次</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-rarely" name="leave-frequency" value="rarely">
+          <label for="leave-rarely">很少或从不</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="unusable">15. 有没有对您来说完全无法使用的网站或应用？（选填）</label>
+        <p class="hint" id="unusable-hint">请列出您能想到的，如果记得，也请说明是什么让您无法使用。</p>
+        <textarea id="unusable" name="unusable" rows="3" aria-describedby="unusable-hint"></textarea>
+      </div>
+
+      <div>
+        <label for="accessible-sites">16. 有没有对您来说特别好用的网站或应用？（选填）</label>
+        <p class="hint" id="accessible-sites-hint">请列出您最喜欢的，如果记得，也请说明它们好在哪里。</p>
+        <textarea id="accessible-sites" name="accessible-sites" rows="3" aria-describedby="accessible-sites-hint"></textarea>
+      </div>
+
+      <h2>理想的体验</h2>
+
+      <fieldset>
+        <legend>17. 想象一下，上网对您来说完全畅通无阻。哪些改变最重要？最多选择三项。</legend>
+        <div class="choice">
+          <input type="checkbox" id="ideal-described" name="ideal" value="everything-described">
+          <label for="ideal-described">屏幕上的一切都能自动、清晰地被描述出来</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-speed" name="ideal" value="same-speed">
+          <label for="ideal-speed">能和明眼人一样快地完成事情</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-clutter" name="ideal" value="skip-clutter">
+          <label for="ideal-clutter">直接找到我需要的内容，不用在杂乱中摸索</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-reliable" name="ideal" value="works-everywhere">
+          <label for="ideal-reliable">每个网站和应用都能直接正常使用，不依赖开发者做得好不好</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-independent" name="ideal" value="no-sighted-help">
+          <label for="ideal-independent">再也不需要向明眼人求助</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-natural" name="ideal" value="natural-interaction">
+          <label for="ideal-natural">用自然的方式和设备对话，而不是背命令</label>
+        </div>
+        <div class="other">
+          <label for="ideal-other">还有更重要的事？请补充在这里。（选填）</label>
+          <input type="text" id="ideal-other" name="ideal-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>18. 您认为以下哪些东西应该为盲人彻底重新设计，而不是打无障碍补丁？请选择所有适用项。</legend>
+        <div class="choice">
+          <input type="checkbox" id="redesign-captcha" name="redesign" value="captchas">
+          <label for="redesign-captcha">CAPTCHA 验证码和安全验证</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-checkout" name="redesign" value="checkout">
+          <label for="redesign-checkout">网上购物和结账流程</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-social" name="redesign" value="social-feeds">
+          <label for="redesign-social">社交媒体的信息流</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-documents" name="redesign" value="documents-pdfs">
+          <label for="redesign-documents">文档和 PDF</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-maps" name="redesign" value="maps-navigation">
+          <label for="redesign-maps">地图和导航</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-kiosks" name="redesign" value="kiosks-touchscreens">
+          <label for="redesign-kiosks">触摸屏自助终端和自助服务机</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-none" name="redesign" value="none">
+          <label for="redesign-none">都不需要 - 有无障碍修补就够了</label>
+        </div>
+        <div class="other">
+          <label for="redesign-other">还有需要彻底重新设计的？请补充在这里。（选填）</label>
+          <input type="text" id="redesign-other" name="redesign-other">
+        </div>
+      </fieldset>
+
+      <h2>关于我们的项目</h2>
+
+      <div class="project-intro">
+        <p>
+          在最后几个问题之前，先简单说明一下：我们团队正在开发一款工具，利用 AI 理解屏幕上的内容并转换成清晰的音频，让您能以更简单、更直接的方式使用网站和应用，即使它们在设计时没有考虑无障碍。
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>19. 您觉得这样的工具会有用吗？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="useful-very" name="useful" value="very-useful" required>
+          <label for="useful-very">非常有用</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-somewhat" name="useful" value="somewhat-useful">
+          <label for="useful-somewhat">比较有用</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-unsure" name="useful" value="not-sure">
+          <label for="useful-unsure">不确定 - 需要了解更多</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-not" name="useful" value="not-useful">
+          <label for="useful-not">对我来说可能没什么用</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>20. 如果它运行良好，您会使用吗？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="use-main" name="would-use" value="as-main-tool" required>
+          <label for="use-main">会，作为我使用设备的主要方式</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-alongside" name="would-use" value="alongside-screenreader">
+          <label for="use-alongside">会，和我的屏幕阅读器一起使用</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-try" name="would-use" value="would-try">
+          <label for="use-try">也许 - 我想先试试</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-probably-not" name="would-use" value="probably-not">
+          <label for="use-probably-not">可能不会</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-no" name="would-use" value="no">
+          <label for="use-no">不会，我对目前的配置很满意</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>21. 当您想象一个 AI 描述您的屏幕并帮助您操作时，您会担心什么？请选择所有适用项。</legend>
+        <div class="choice">
+          <input type="checkbox" id="worry-mistakes" name="ai-concerns" value="mistakes">
+          <label for="worry-mistakes">它描述错了而我不知道</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-privacy" name="ai-concerns" value="privacy">
+          <label for="worry-privacy">隐私 - AI 会看到我的消息、银行账户或个人信息</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-control" name="ai-concerns" value="losing-control">
+          <label for="worry-control">失去掌控 - 由它替我决定什么重要</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-speed" name="ai-concerns" value="too-slow">
+          <label for="worry-speed">它比我现在的操作方式更慢</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-dependence" name="ai-concerns" value="dependence">
+          <label for="worry-dependence">依赖一个可能出故障、改变或消失的工具</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-cost" name="ai-concerns" value="cost">
+          <label for="worry-cost">费用</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-none" name="ai-concerns" value="no-concerns">
+          <label for="worry-none">没什么特别担心的 - 我很想试试</label>
+        </div>
+        <div class="other">
+          <label for="ai-concerns-other">还有其他顾虑？请告诉我们。（选填）</label>
+          <input type="text" id="ai-concerns-other" name="ai-concerns-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>22. 如果这类工具让互联网对您完全无障碍，您的生活会有什么变化？（必答）</legend>
+        <div class="choice">
+          <input type="radio" id="change-alot" name="life-change" value="a-lot" required>
+          <label for="change-alot">变化很大 - 能做到我现在回避或做不到的事</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-work" name="life-change" value="mainly-work">
+          <label for="change-work">主要是我的工作或学业</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-freetime" name="life-change" value="mainly-freetime">
+          <label for="change-freetime">主要是我的业余时间和爱好</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-little" name="life-change" value="not-much">
+          <label for="change-little">变化不大 - 我用现在的配置已经应付得很好</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-unsure" name="life-change" value="unsure">
+          <label for="change-unsure">很难说</label>
+        </div>
+      </fieldset>
+
+      <h2>最后</h2>
+
+      <div>
+        <label for="final-thoughts">23. 还有什么重要的事情我们没有问到？（选填）</label>
+        <p class="hint" id="final-hint">想说什么都可以 - 这里是您的空间。</p>
+        <textarea id="final-thoughts" name="final-thoughts" rows="5" aria-describedby="final-hint"></textarea>
+      </div>
+
+      <button type="submit">提交问卷</button>
+
+      <p class="status" role="status" aria-live="polite" id="form-status"></p>
+
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('survey-form');
+    const status = document.getElementById('form-status');
+
+    const requiredQuestions = [
+      { name: 'age', label: '第 1 题，年龄段', focus: 'age-under-18' },
+      { name: 'sight-today', label: '第 3 题，您目前的视力', focus: 'sight-none' },
+      { name: 'sight-birth', label: '第 4 题，您出生时的视力', focus: 'birth-blind' },
+      { name: 'screenreader', label: '第 6 题，屏幕阅读器', focus: 'sr-voiceover' },
+      { name: 'comfort-time', label: '第 9 题，熟练掌握所需时间', focus: 'comfort-weeks' },
+      { name: 'difficulty', label: '第 10 题，上网办事的难易程度', focus: 'ease-very-easy' },
+      { name: 'harder', label: '第 13 题，网站还是应用', focus: 'harder-web' },
+      { name: 'leave-frequency', label: '第 14 题，放弃使用的频率', focus: 'leave-daily' },
+      { name: 'useful', label: '第 19 题，工具是否有用', focus: 'useful-very' },
+      { name: 'would-use', label: '第 20 题，是否会使用', focus: 'use-main' },
+      { name: 'life-change', label: '第 22 题，生活会有什么变化', focus: 'change-alot' }
+    ];
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const missing = requiredQuestions.filter(function (q) {
+        return !form.querySelector('input[name="' + q.name + '"]:checked');
+      });
+
+      if (missing.length > 0) {
+        status.textContent = '问卷尚未提交。' +
+          (missing.length > 1
+            ? '还有 ' + missing.length + ' 个必答题未回答。'
+            : '还有 1 个必答题未回答。') +
+          '第一个是：' + missing[0].label + '。焦点已移动到该问题。';
+        document.getElementById(missing[0].focus).focus();
+        return;
+      }
+
+      const followUp = document.getElementById('follow-up');
+      const email = document.getElementById('email');
+      if (followUp.checked && !email.value.trim()) {
+        status.textContent = '问卷尚未提交。您同意我们与您联系，但电子邮箱一栏' +
+          '是空的。焦点已移动到邮箱输入框：请填写邮箱，或取消勾选联系选项。';
+        email.focus();
+        return;
+      }
+
+      const data = {};
+      new FormData(form).forEach(function (value, key) {
+        if (data[key] === undefined) {
+          data[key] = value;
+        } else if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      });
+
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      status.textContent = '正在提交您的问卷...';
+
+      fetch('api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        status.textContent = '谢谢！您的问卷已成功提交。';
+      }).catch(function () {
+        button.disabled = false;
+        status.textContent = '出了点问题，您的问卷未能提交。' +
+          '请再试一次：您的回答仍保留在页面上。';
+      });
+    });
+  </script>
+
+</body>
+</html>

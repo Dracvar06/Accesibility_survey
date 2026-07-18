@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アクセシビリティ体験アンケート</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    body {
+      font-family: 'Atkinson Hyperlegible', -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 1.625rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; margin-top: 2rem; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+    }
+    .skip-link:focus {
+      position: static;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: #ffffff;
+    }
+
+    .lang-switch {
+      text-align: right;
+      font-size: 1.25rem;
+    }
+
+    fieldset {
+      border: 2px solid #767676;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      padding: 1rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.75rem 0 0.25rem;
+      font-weight: bold;
+    }
+
+    .choice label {
+      display: inline;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .choice {
+      margin: 0.5rem 0;
+    }
+
+    .other {
+      margin-top: 1rem;
+    }
+    .other label {
+      font-weight: normal;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      font-size: 1.5rem;
+      padding: 0.6rem;
+      border: 2px solid #767676;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+
+    a:focus,
+    input:focus,
+    textarea:focus,
+    button:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+
+    .hint {
+      font-weight: normal;
+      font-size: 1.375rem;
+      color: #444444;
+      margin: 0.25rem 0;
+    }
+
+    .project-intro {
+      border-left: 4px solid #003366;
+      background: #f2f6fa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      font-size: 1.625rem;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      margin-top: 1.5rem;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #0055cc; }
+
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#survey-form">アンケートフォームへ直接移動</a>
+
+  <p class="lang-switch"><a href="index.html">言語を変更</a></p>
+
+  <header>
+    <h1>アクセシビリティ体験アンケート</h1>
+    <p>
+      ご参加ありがとうございます。このアンケートは全23問で、所要時間は約10分です。ほとんどの質問は選択式です。「必須」と記載された質問は、送信前に回答が必要です。回答は秘密として扱われます。お名前とメールアドレスの記入は任意です。
+    </p>
+  </header>
+
+  <main>
+    <form id="survey-form" novalidate>
+      <input type="hidden" name="language" value="ja">
+
+      <h2>あなたについて</h2>
+
+      <div>
+        <label for="name">お名前（任意）</label>
+        <input type="text" id="name" name="name" autocomplete="name">
+      </div>
+
+      <div>
+        <label for="email">メールアドレス（任意）</label>
+        <p class="hint" id="email-hint">
+          追加の質問やツールのお試しのご案内などでご連絡してもよい場合のみ、ご記入ください。
+        </p>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint">
+      </div>
+
+      <div class="choice">
+        <input type="checkbox" id="follow-up" name="follow-up" value="yes" aria-describedby="follow-up-hint">
+        <label for="follow-up">
+          はい、追加の質問をメールで送ったり、開発中のプロダクトについてのインタビューに招待したりしても構いません。
+        </label>
+        <p class="hint" id="follow-up-hint">
+          このチェックを入れる場合は、ご連絡できるよう上の欄にメールアドレスをご記入ください。
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>1. 年齢層を教えてください。（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="age-under-18" name="age" value="under-18" required>
+          <label for="age-under-18">18歳未満</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-18-29" name="age" value="18-29">
+          <label for="age-18-29">18〜29歳</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-30-49" name="age" value="30-49">
+          <label for="age-30-49">30〜49歳</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-50-64" name="age" value="50-64">
+          <label for="age-50-64">50〜64歳</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-65-plus" name="age" value="65+">
+          <label for="age-65-plus">65歳以上</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="country">2. どちらの国から回答していますか？（任意）</label>
+        <input type="text" id="country" name="country" autocomplete="country-name">
+      </div>
+
+      <h2>あなたの視覚について</h2>
+
+      <fieldset>
+        <legend>3. 現在の視覚の状態を教えてください。（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="sight-none" name="sight-today" value="totally-blind" required>
+          <label for="sight-none">全盲</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-partial" name="sight-today" value="partially-blind">
+          <label for="sight-partial">一部見えている</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-private" name="sight-today" value="prefer-not-to-say">
+          <label for="sight-private">回答したくない</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. 生まれたときの視覚の状態を教えてください。（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="birth-blind" name="sight-birth" value="blind" required>
+          <label for="birth-blind">生まれつき全盲</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-partial" name="sight-birth" value="partially-sighted">
+          <label for="birth-partial">生まれたときは一部見えていた</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-sighted" name="sight-birth" value="fully-sighted">
+          <label for="birth-sighted">生まれたときは見えていた</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-unsure" name="sight-birth" value="unsure">
+          <label for="birth-unsure">わからない、または回答したくない</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. 視覚の状態は安定していますか、それとも変化していますか？（任意）</legend>
+        <div class="choice">
+          <input type="radio" id="vision-stable" name="vision-change" value="stable">
+          <label for="vision-stable">安定している</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-declining" name="vision-change" value="gradually-changing">
+          <label for="vision-declining">時間とともに徐々に変化している</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-varies" name="vision-change" value="varies">
+          <label for="vision-varies">日によって変わる</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-unsure" name="vision-change" value="unsure">
+          <label for="vision-unsure">わからない</label>
+        </div>
+      </fieldset>
+
+      <h2>あなたのツール</h2>
+
+      <fieldset>
+        <legend>6. 最もよく使うスクリーンリーダーはどれですか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="sr-voiceover" name="screenreader" value="voiceover" required>
+          <label for="sr-voiceover">VoiceOver（Apple）</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-jaws" name="screenreader" value="jaws">
+          <label for="sr-jaws">JAWS</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-nvda" name="screenreader" value="nvda">
+          <label for="sr-nvda">NVDA</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-talkback" name="screenreader" value="talkback">
+          <label for="sr-talkback">TalkBack（Android）</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-other" name="screenreader" value="other">
+          <label for="sr-other">その他、または使っていない</label>
+        </div>
+        <div class="other">
+          <label for="screenreader-other">別のスクリーンリーダーですか？こちらにご記入ください。（任意）</label>
+          <input type="text" id="screenreader-other" name="screenreader-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. ふだん使っているデバイスはどれですか？当てはまるものをすべて選んでください。</legend>
+        <div class="choice">
+          <input type="checkbox" id="dev-phone" name="devices" value="smartphone">
+          <label for="dev-phone">スマートフォン</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-computer" name="devices" value="computer">
+          <label for="dev-computer">デスクトップまたはノートパソコン</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-tablet" name="devices" value="tablet">
+          <label for="dev-tablet">タブレット</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-braille" name="devices" value="braille-display">
+          <label for="dev-braille">点字ディスプレイ</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-notetaker" name="devices" value="braille-notetaker">
+          <label for="dev-notetaker">点字メモ機（BrailleNote、ElBraille など）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-glasses" name="devices" value="smart-glasses">
+          <label for="dev-glasses">スマートグラスやウェアラブルカメラ（Envision、OrCam、Meta グラスなど）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-daisy" name="devices" value="daisy-player">
+          <label for="dev-daisy">DAISY・オーディオブックプレーヤー（Victor Reader など）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-smart-speaker" name="devices" value="smart-speaker">
+          <label for="dev-smart-speaker">スマートスピーカー（Alexa、Google Home など）</label>
+        </div>
+        <div class="other">
+          <label for="devices-other">リストにないデバイスがあれば、こちらにご記入ください。（任意）</label>
+          <input type="text" id="devices-other" name="devices-other">
+        </div>
+      </fieldset>
+
+      <h2>ツールの使い方を学ぶ</h2>
+
+      <fieldset>
+        <legend>8. スクリーンリーダーの使い方はどのように学びましたか？当てはまるものをすべて選んでください。</legend>
+        <div class="choice">
+          <input type="checkbox" id="learn-training" name="learning" value="formal-training">
+          <label for="learn-training">正式な訓練やリハビリテーションプログラム</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-self" name="learning" value="self-taught">
+          <label for="learn-self">独学（試行錯誤しながら）</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-online" name="learning" value="online-resources">
+          <label for="learn-online">オンラインのチュートリアル、ポッドキャスト、動画</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-people" name="learning" value="friends-family">
+          <label for="learn-people">友人、家族、他の視覚障害者の助け</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-school" name="learning" value="school-work">
+          <label for="learn-school">学校や職場で</label>
+        </div>
+        <div class="other">
+          <label for="learning-other">他の方法で学んだ場合は、こちらにご記入ください。（任意）</label>
+          <input type="text" id="learning-other" name="learning-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. スクリーンリーダーを快適に使えるようになるまで、どのくらいかかりましたか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="comfort-weeks" name="comfort-time" value="weeks" required>
+          <label for="comfort-weeks">数週間</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-months" name="comfort-time" value="months">
+          <label for="comfort-months">数か月</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-year" name="comfort-time" value="about-a-year">
+          <label for="comfort-year">1年くらい</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-years" name="comfort-time" value="several-years">
+          <label for="comfort-years">数年</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-never" name="comfort-time" value="still-not">
+          <label for="comfort-never">まだ完全には快適ではない</label>
+        </div>
+      </fieldset>
+
+      <h2>日々の暮らし</h2>
+
+      <fieldset>
+        <legend>10. 全体として、ウェブで用事を済ませるのはどのくらい簡単ですか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="ease-very-easy" name="difficulty" value="very-easy" required>
+          <label for="ease-very-easy">とても簡単</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-easy" name="difficulty" value="easy">
+          <label for="ease-easy">わりと簡単</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-neutral" name="difficulty" value="neutral">
+          <label for="ease-neutral">どちらともいえない</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-difficult" name="difficulty" value="difficult">
+          <label for="ease-difficult">やや難しい</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-very-difficult" name="difficulty" value="very-difficult">
+          <label for="ease-very-difficult">とても難しい</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. 今の環境でうまくできていることはどれですか？当てはまるものをすべて選んでください。</legend>
+        <div class="choice">
+          <input type="checkbox" id="well-reading" name="works-well" value="reading">
+          <label for="well-reading">記事や長い文章を読む</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-messaging" name="works-well" value="messaging">
+          <label for="well-messaging">メールやメッセージのやり取り</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-familiar" name="works-well" value="familiar-sites">
+          <label for="well-familiar">よく知っているサイトやアプリの利用</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-shopping" name="works-well" value="shopping">
+          <label for="well-shopping">買い物や支払い</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-social" name="works-well" value="social-media">
+          <label for="well-social">SNS</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-work" name="works-well" value="work-documents">
+          <label for="well-work">仕事や学習の文書・ツール</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. 最もよく妨げになるのは何ですか？当てはまるものをすべて選んでください。</legend>
+        <div class="choice">
+          <input type="checkbox" id="hard-unlabeled" name="barriers" value="unlabeled-elements">
+          <label for="hard-unlabeled">ラベルのないボタン、リンク、画像</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-layout" name="barriers" value="cluttered-layout">
+          <label for="hard-layout">ごちゃごちゃした、わかりにくいページ</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-popups" name="barriers" value="popups-ads">
+          <label for="hard-popups">ポップアップ、Cookie の同意画面、広告</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-captcha" name="barriers" value="captchas">
+          <label for="hard-captcha">CAPTCHA や本人確認</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-forms" name="barriers" value="forms">
+          <label for="hard-forms">フォームや購入手続き</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-dynamic" name="barriers" value="dynamic-content">
+          <label for="hard-dynamic">予告なく変化したり動いたりするコンテンツ</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-media" name="barriers" value="undescribed-media">
+          <label for="hard-media">説明のない画像や動画</label>
+        </div>
+        <div class="other">
+          <label for="barriers-other">見落としている障壁があれば、こちらにご記入ください。（任意）</label>
+          <input type="text" id="barriers-other" name="barriers-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>13. 全体的に、どちらが使いにくいと感じますか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="harder-web" name="harder" value="websites" required>
+          <label for="harder-web">ウェブサイト</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-apps" name="harder" value="mobile-apps">
+          <label for="harder-apps">スマートフォンアプリ</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-both" name="harder" value="both">
+          <label for="harder-both">どちらも同じくらい使いにくい</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-neither" name="harder" value="neither">
+          <label for="harder-neither">どちらもわりとうまく使えている</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>14. アクセシブルでないという理由でサイトやアプリの利用をあきらめることは、どのくらいありますか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="leave-daily" name="leave-frequency" value="daily" required>
+          <label for="leave-daily">毎日</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-weekly" name="leave-frequency" value="weekly">
+          <label for="leave-weekly">週に数回</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-monthly" name="leave-frequency" value="monthly">
+          <label for="leave-monthly">月に数回</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-rarely" name="leave-frequency" value="rarely">
+          <label for="leave-rarely">ほとんどない、またはまったくない</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="unusable">15. まったく使えないサイトやアプリはありますか？（任意）</label>
+        <p class="hint" id="unusable-hint">思いつくものを挙げてください。覚えていれば、何が妨げになっているかも教えてください。</p>
+        <textarea id="unusable" name="unusable" rows="3" aria-describedby="unusable-hint"></textarea>
+      </div>
+
+      <div>
+        <label for="accessible-sites">16. 特にうまく使えているサイトやアプリはありますか？（任意）</label>
+        <p class="hint" id="accessible-sites-hint">お気に入りを挙げてください。覚えていれば、何が良いのかも教えてください。</p>
+        <textarea id="accessible-sites" name="accessible-sites" rows="3" aria-describedby="accessible-sites-hint"></textarea>
+      </div>
+
+      <h2>理想の体験</h2>
+
+      <fieldset>
+        <legend>17. インターネットが完璧に使えるようになったと想像してください。どの変化が最も重要ですか？最大3つまで選んでください。</legend>
+        <div class="choice">
+          <input type="checkbox" id="ideal-described" name="ideal" value="everything-described">
+          <label for="ideal-described">画面上のすべてが自動的に、わかりやすく説明される</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-speed" name="ideal" value="same-speed">
+          <label for="ideal-speed">目の見える人と同じ速さで物事を済ませられる</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-clutter" name="ideal" value="skip-clutter">
+          <label for="ideal-clutter">ごちゃごちゃをかき分けずに、必要なものへ直接たどり着ける</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-reliable" name="ideal" value="works-everywhere">
+          <label for="ideal-reliable">開発者の出来に左右されず、どのサイトやアプリも当たり前に使える</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-independent" name="ideal" value="no-sighted-help">
+          <label for="ideal-independent">目の見える人に助けを求める必要が一切なくなる</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-natural" name="ideal" value="natural-interaction">
+          <label for="ideal-natural">コマンドを覚える代わりに、デバイスと自然に会話できる</label>
+        </div>
+        <div class="other">
+          <label for="ideal-other">他に重要なことがあれば、こちらにご記入ください。（任意）</label>
+          <input type="text" id="ideal-other" name="ideal-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>18. 次のうち、アクセシビリティの後付け対応ではなく、視覚障害者のためにゼロから設計し直すべきだと思うものはどれですか？当てはまるものをすべて選んでください。</legend>
+        <div class="choice">
+          <input type="checkbox" id="redesign-captcha" name="redesign" value="captchas">
+          <label for="redesign-captcha">CAPTCHA やセキュリティ確認</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-checkout" name="redesign" value="checkout">
+          <label for="redesign-checkout">ネットショッピングと決済</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-social" name="redesign" value="social-feeds">
+          <label for="redesign-social">SNS のフィード</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-documents" name="redesign" value="documents-pdfs">
+          <label for="redesign-documents">文書や PDF</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-maps" name="redesign" value="maps-navigation">
+          <label for="redesign-maps">地図やナビゲーション</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-kiosks" name="redesign" value="kiosks-touchscreens">
+          <label for="redesign-kiosks">タッチパネル式の端末やセルフレジ</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-none" name="redesign" value="none">
+          <label for="redesign-none">どれも不要 - アクセシビリティ対応で十分</label>
+        </div>
+        <div class="other">
+          <label for="redesign-other">全面的な再設計が必要なものが他にあれば、こちらにご記入ください。（任意）</label>
+          <input type="text" id="redesign-other" name="redesign-other">
+        </div>
+      </fieldset>
+
+      <h2>私たちのプロジェクトについて</h2>
+
+      <div class="project-intro">
+        <p>
+          最後の質問の前に少しだけ紹介させてください。私たちのチームは、AI で画面の内容を理解し、わかりやすい音声に変換するツールを開発しています。アクセシビリティを考慮せずに作られたサイトやアプリでも、よりシンプルで直接的な方法で操作できるようにすることが目標です。
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>19. このようなツールは役に立つと思いますか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="useful-very" name="useful" value="very-useful" required>
+          <label for="useful-very">とても役に立つ</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-somewhat" name="useful" value="somewhat-useful">
+          <label for="useful-somewhat">まあまあ役に立つ</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-unsure" name="useful" value="not-sure">
+          <label for="useful-unsure">わからない - もっと詳しく知る必要がある</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-not" name="useful" value="not-useful">
+          <label for="useful-not">自分にはおそらく役に立たない</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>20. うまく動くとしたら、使いたいですか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="use-main" name="would-use" value="as-main-tool" required>
+          <label for="use-main">はい、デバイスを使う主な手段として</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-alongside" name="would-use" value="alongside-screenreader">
+          <label for="use-alongside">はい、スクリーンリーダーと併用して</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-try" name="would-use" value="would-try">
+          <label for="use-try">たぶん - まず試してみたい</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-probably-not" name="would-use" value="probably-not">
+          <label for="use-probably-not">おそらく使わない</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-no" name="would-use" value="no">
+          <label for="use-no">いいえ、今の環境に満足している</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>21. AI が画面を説明し、操作を手伝ってくれるとしたら、何が心配ですか？当てはまるものをすべて選んでください。</legend>
+        <div class="choice">
+          <input type="checkbox" id="worry-mistakes" name="ai-concerns" value="mistakes">
+          <label for="worry-mistakes">間違った説明をされても自分では気づけないこと</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-privacy" name="ai-concerns" value="privacy">
+          <label for="worry-privacy">プライバシー - AI にメッセージや銀行情報、個人情報を見られること</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-control" name="ai-concerns" value="losing-control">
+          <label for="worry-control">主導権を失うこと - 何が重要かを AI が勝手に決めてしまうこと</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-speed" name="ai-concerns" value="too-slow">
+          <label for="worry-speed">今のやり方より遅くなること</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-dependence" name="ai-concerns" value="dependence">
+          <label for="worry-dependence">故障したり、変わったり、なくなったりするかもしれないツールに依存すること</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-cost" name="ai-concerns" value="cost">
+          <label for="worry-cost">費用</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-none" name="ai-concerns" value="no-concerns">
+          <label for="worry-none">特にない - ぜひ試してみたい</label>
+        </div>
+        <div class="other">
+          <label for="ai-concerns-other">他に心配なことがあれば、こちらにご記入ください。（任意）</label>
+          <input type="text" id="ai-concerns-other" name="ai-concerns-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>22. こうしたツールでインターネットが完全にアクセシブルになったら、あなたの生活はどう変わりますか？（必須）</legend>
+        <div class="choice">
+          <input type="radio" id="change-alot" name="life-change" value="a-lot" required>
+          <label for="change-alot">大きく変わる - 今は避けている、またはできないことができるようになる</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-work" name="life-change" value="mainly-work">
+          <label for="change-work">主に仕事や学業が変わる</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-freetime" name="life-change" value="mainly-freetime">
+          <label for="change-freetime">主に自由時間や趣味が変わる</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-little" name="life-change" value="not-much">
+          <label for="change-little">あまり変わらない - 今の環境で十分うまくやれている</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-unsure" name="life-change" value="unsure">
+          <label for="change-unsure">なんともいえない</label>
+        </div>
+      </fieldset>
+
+      <h2>最後に</h2>
+
+      <div>
+        <label for="final-thoughts">23. 私たちが聞き忘れている大事なことはありますか？（任意）</label>
+        <p class="hint" id="final-hint">なんでも構いません - ここはあなたのためのスペースです。</p>
+        <textarea id="final-thoughts" name="final-thoughts" rows="5" aria-describedby="final-hint"></textarea>
+      </div>
+
+      <button type="submit">アンケートを送信</button>
+
+      <p class="status" role="status" aria-live="polite" id="form-status"></p>
+
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('survey-form');
+    const status = document.getElementById('form-status');
+
+    const requiredQuestions = [
+      { name: 'age', label: '質問1、年齢層', focus: 'age-under-18' },
+      { name: 'sight-today', label: '質問3、現在の視覚', focus: 'sight-none' },
+      { name: 'sight-birth', label: '質問4、生まれたときの視覚', focus: 'birth-blind' },
+      { name: 'screenreader', label: '質問6、スクリーンリーダー', focus: 'sr-voiceover' },
+      { name: 'comfort-time', label: '質問9、快適になるまでの期間', focus: 'comfort-weeks' },
+      { name: 'difficulty', label: '質問10、ウェブの使いやすさ', focus: 'ease-very-easy' },
+      { name: 'harder', label: '質問13、サイトかアプリか', focus: 'harder-web' },
+      { name: 'leave-frequency', label: '質問14、あきらめる頻度', focus: 'leave-daily' },
+      { name: 'useful', label: '質問19、ツールが役に立つか', focus: 'useful-very' },
+      { name: 'would-use', label: '質問20、使いたいか', focus: 'use-main' },
+      { name: 'life-change', label: '質問22、生活がどう変わるか', focus: 'change-alot' }
+    ];
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const missing = requiredQuestions.filter(function (q) {
+        return !form.querySelector('input[name="' + q.name + '"]:checked');
+      });
+
+      if (missing.length > 0) {
+        status.textContent = 'アンケートは送信されていません。' +
+          (missing.length > 1
+            ? '未回答の必須質問が ' + missing.length + ' 問あります。'
+            : '未回答の必須質問が 1 問あります。') +
+          '最初の質問は「' + missing[0].label + '」です。フォーカスをその質問に移動しました。';
+        document.getElementById(missing[0].focus).focus();
+        return;
+      }
+
+      const followUp = document.getElementById('follow-up');
+      const email = document.getElementById('email');
+      if (followUp.checked && !email.value.trim()) {
+        status.textContent = 'アンケートは送信されていません。連絡してもよいと' +
+          'チェックされていますが、メールアドレスの欄が空です。フォーカスをメール欄に' +
+          '移動しました。メールアドレスを入力するか、チェックを外してください。';
+        email.focus();
+        return;
+      }
+
+      const data = {};
+      new FormData(form).forEach(function (value, key) {
+        if (data[key] === undefined) {
+          data[key] = value;
+        } else if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      });
+
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      status.textContent = 'アンケートを送信しています...';
+
+      fetch('api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        status.textContent = 'ありがとうございました！アンケートは正常に送信されました。';
+      }).catch(function () {
+        button.disabled = false;
+        status.textContent = '問題が発生し、アンケートは送信されませんでした。' +
+          'もう一度お試しください。回答はこのページに残っています。';
+      });
+    });
+  </script>
+
+</body>
+</html>

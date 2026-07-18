@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irisgarritasun-esperientziari buruzko inkesta</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    body {
+      font-family: 'Atkinson Hyperlegible', -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 1.625rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; margin-top: 2rem; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+    }
+    .skip-link:focus {
+      position: static;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: #ffffff;
+    }
+
+    .lang-switch {
+      text-align: right;
+      font-size: 1.25rem;
+    }
+
+    fieldset {
+      border: 2px solid #767676;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      padding: 1rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.75rem 0 0.25rem;
+      font-weight: bold;
+    }
+
+    .choice label {
+      display: inline;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .choice {
+      margin: 0.5rem 0;
+    }
+
+    .other {
+      margin-top: 1rem;
+    }
+    .other label {
+      font-weight: normal;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      font-size: 1.5rem;
+      padding: 0.6rem;
+      border: 2px solid #767676;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+
+    a:focus,
+    input:focus,
+    textarea:focus,
+    button:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+
+    .hint {
+      font-weight: normal;
+      font-size: 1.375rem;
+      color: #444444;
+      margin: 0.25rem 0;
+    }
+
+    .project-intro {
+      border-left: 4px solid #003366;
+      background: #f2f6fa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      font-size: 1.625rem;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      margin-top: 1.5rem;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #0055cc; }
+
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#survey-form">Joan zuzenean inkestaren formulariora</a>
+
+  <p class="lang-switch"><a href="index.html">Aldatu hizkuntza</a></p>
+
+  <header>
+    <h1>Irisgarritasun-esperientziari buruzko inkesta</h1>
+    <p>
+      Eskerrik asko parte hartzeagatik. Inkesta honek 23 galdera ditu eta
+      10 minutu inguru behar dira osatzeko. Galdera gehienak aukera
+      anitzekoak dira. "Derrigorrezkoa" gisa markatutako galderak erantzun
+      behar dira bidali aurretik. Zure erantzunak isilpekoak dira; izena
+      eta helbide elektronikoa aukerakoak dira.
+    </p>
+  </header>
+
+  <main>
+    <form id="survey-form" novalidate>
+      <input type="hidden" name="language" value="eu">
+
+      <h2>Zuri buruz</h2>
+
+      <div>
+        <label for="name">Zure izena (aukerakoa)</label>
+        <input type="text" id="name" name="name" autocomplete="name">
+      </div>
+
+      <div>
+        <label for="email">Zure helbide elektronikoa (aukerakoa)</label>
+        <p class="hint" id="email-hint">
+          Partekatu soilik ados bazaude zurekin harremanetan jartzearekin,
+          jarraipen-galderak egiteko edo aurrerago tresna probatzera
+          gonbidatzeko.
+        </p>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint">
+      </div>
+
+      <div class="choice">
+        <input type="checkbox" id="follow-up" name="follow-up" value="yes" aria-describedby="follow-up-hint">
+        <label for="follow-up">
+          Bai, bidal diezazkidakezue galdera gehiago mezu elektronikoz, edo
+          gonbida nazakezue eraikitzen ari zareten produktuari buruzko
+          elkarrizketa batera.
+        </label>
+        <p class="hint" id="follow-up-hint">
+          Lauki hau markatzen baduzu, idatzi zure helbide elektronikoa
+          goian, zurekin harremanetan jar gaitezen.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>1. Zein da zure adin-taldea? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="age-under-18" name="age" value="under-18" required>
+          <label for="age-under-18">18 urte baino gutxiago</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-18-29" name="age" value="18-29">
+          <label for="age-18-29">18tik 29ra</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-30-49" name="age" value="30-49">
+          <label for="age-30-49">30etik 49ra</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-50-64" name="age" value="50-64">
+          <label for="age-50-64">50etik 64ra</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-65-plus" name="age" value="65+">
+          <label for="age-65-plus">65 edo gehiago</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="country">2. Zein herrialdetatik erantzuten duzu? (aukerakoa)</label>
+        <input type="text" id="country" name="country" autocomplete="country-name">
+      </div>
+
+      <h2>Zure ikusmenari buruz</h2>
+
+      <fieldset>
+        <legend>3. Nola deskribatuko zenuke zure ikusmena gaur egun? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="sight-none" name="sight-today" value="totally-blind" required>
+          <label for="sight-none">Itsutasun osoa</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-partial" name="sight-today" value="partially-blind">
+          <label for="sight-partial">Itsutasun partziala</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-private" name="sight-today" value="prefer-not-to-say">
+          <label for="sight-private">Nahiago dut ez esan</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Nola deskribatuko zenuke zure ikusmena jaiotzean? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="birth-blind" name="sight-birth" value="blind" required>
+          <label for="birth-blind">Jaiotzatiko itsutasuna</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-partial" name="sight-birth" value="partially-sighted">
+          <label for="birth-partial">Ikusmen partziala jaiotzean</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-sighted" name="sight-birth" value="fully-sighted">
+          <label for="birth-sighted">Ikusmen osoa jaiotzean</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-unsure" name="sight-birth" value="unsure">
+          <label for="birth-unsure">Ez dakit edo nahiago dut ez esan</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Zure ikusmena egonkorra da ala aldatzen ari da? (aukerakoa)</legend>
+        <div class="choice">
+          <input type="radio" id="vision-stable" name="vision-change" value="stable">
+          <label for="vision-stable">Egonkorra</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-declining" name="vision-change" value="gradually-changing">
+          <label for="vision-declining">Pixkanaka aldatzen da denborarekin</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-varies" name="vision-change" value="varies">
+          <label for="vision-varies">Egunetik egunera aldatzen da</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-unsure" name="vision-change" value="unsure">
+          <label for="vision-unsure">Ez dakit</label>
+        </div>
+      </fieldset>
+
+      <h2>Zure tresnak</h2>
+
+      <fieldset>
+        <legend>6. Zein pantaila-irakurle erabiltzen duzu gehien? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="sr-voiceover" name="screenreader" value="voiceover" required>
+          <label for="sr-voiceover">VoiceOver (Apple)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-jaws" name="screenreader" value="jaws">
+          <label for="sr-jaws">JAWS</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-nvda" name="screenreader" value="nvda">
+          <label for="sr-nvda">NVDA</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-talkback" name="screenreader" value="talkback">
+          <label for="sr-talkback">TalkBack (Android)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-other" name="screenreader" value="other">
+          <label for="sr-other">Beste bat edo bat ere ez</label>
+        </div>
+        <div class="other">
+          <label for="screenreader-other">Beste pantaila-irakurle bat? Idatzi hemen. (aukerakoa)</label>
+          <input type="text" id="screenreader-other" name="screenreader-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. Zein gailu erabiltzen dituzu normalean? Markatu dagozkizun guztiak.</legend>
+        <div class="choice">
+          <input type="checkbox" id="dev-phone" name="devices" value="smartphone">
+          <label for="dev-phone">Telefono adimenduna</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-computer" name="devices" value="computer">
+          <label for="dev-computer">Mahaigaineko ordenagailua edo eramangarria</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-tablet" name="devices" value="tablet">
+          <label for="dev-tablet">Tableta</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-braille" name="devices" value="braille-display">
+          <label for="dev-braille">Braille-lerroa</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-notetaker" name="devices" value="braille-notetaker">
+          <label for="dev-notetaker">Braille-ohargailua (adibidez BrailleNote edo ElBraille)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-glasses" name="devices" value="smart-glasses">
+          <label for="dev-glasses">Betaurreko adimendunak edo kamera eramangarria (adibidez Envision, OrCam edo Meta betaurrekoak)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-daisy" name="devices" value="daisy-player">
+          <label for="dev-daisy">DAISY edo audioliburu-erreproduzitzailea (adibidez Victor Reader)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-smart-speaker" name="devices" value="smart-speaker">
+          <label for="dev-smart-speaker">Bozgorailu adimenduna (adibidez Alexa edo Google Home)</label>
+        </div>
+        <div class="other">
+          <label for="devices-other">Aipatu ez dugun beste gailuren bat? Gehitu hemen. (aukerakoa)</label>
+          <input type="text" id="devices-other" name="devices-other">
+        </div>
+      </fieldset>
+
+      <h2>Zure tresnak erabiltzen ikastea</h2>
+
+      <fieldset>
+        <legend>8. Nola ikasi zenuen zure pantaila-irakurlea erabiltzen? Markatu dagozkizun guztiak.</legend>
+        <div class="choice">
+          <input type="checkbox" id="learn-training" name="learning" value="formal-training">
+          <label for="learn-training">Prestakuntza formala edo errehabilitazio-programa bat</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-self" name="learning" value="self-taught">
+          <label for="learn-self">Nire kabuz ikasi nuen, saiakera eta errore bidez</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-online" name="learning" value="online-resources">
+          <label for="learn-online">Lineako tutorialak, podcastak edo bideoak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-people" name="learning" value="friends-family">
+          <label for="learn-people">Lagunen, familiaren edo beste pertsona itsu batzuen laguntza</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-school" name="learning" value="school-work">
+          <label for="learn-school">Eskolan edo lanean</label>
+        </div>
+        <div class="other">
+          <label for="learning-other">Beste modu batean ikasi zenuen? Kontatu hemen. (aukerakoa)</label>
+          <input type="text" id="learning-other" name="learning-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. Zenbat denbora behar izan zenuen zure pantaila-irakurlearekin eroso sentitzeko? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="comfort-weeks" name="comfort-time" value="weeks" required>
+          <label for="comfort-weeks">Aste batzuk</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-months" name="comfort-time" value="months">
+          <label for="comfort-months">Hilabete batzuk</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-year" name="comfort-time" value="about-a-year">
+          <label for="comfort-year">Urtebete inguru</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-years" name="comfort-time" value="several-years">
+          <label for="comfort-years">Hainbat urte</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-never" name="comfort-time" value="still-not">
+          <label for="comfort-never">Oraindik ez naiz erabat eroso sentitzen</label>
+        </div>
+      </fieldset>
+
+      <h2>Zure eguneroko bizitza</h2>
+
+      <fieldset>
+        <legend>10. Oro har, zein erraza da zuretzat gauzak sarean egitea? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="ease-very-easy" name="difficulty" value="very-easy" required>
+          <label for="ease-very-easy">Oso erraza</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-easy" name="difficulty" value="easy">
+          <label for="ease-easy">Nahiko erraza</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-neutral" name="difficulty" value="neutral">
+          <label for="ease-neutral">Ez erraza, ez zaila</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-difficult" name="difficulty" value="difficult">
+          <label for="ease-difficult">Nahiko zaila</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-very-difficult" name="difficulty" value="very-difficult">
+          <label for="ease-very-difficult">Oso zaila</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. Zer maneiatzen du ondo zure oraingo konfigurazioak? Markatu dagokizun guztia.</legend>
+        <div class="choice">
+          <input type="checkbox" id="well-reading" name="works-well" value="reading">
+          <label for="well-reading">Artikuluak eta testu luzeak irakurtzea</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-messaging" name="works-well" value="messaging">
+          <label for="well-messaging">Posta elektronikoa eta mezularitza</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-familiar" name="works-well" value="familiar-sites">
+          <label for="well-familiar">Dagoeneko ezagutzen ditudan webgune eta aplikazioetan nabigatzea</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-shopping" name="works-well" value="shopping">
+          <label for="well-shopping">Erosketak eta ordainketak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-social" name="works-well" value="social-media">
+          <label for="well-social">Sare sozialak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-work" name="works-well" value="work-documents">
+          <label for="well-work">Laneko edo ikasketetako dokumentuak eta tresnak</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. Zerk oztopatzen zaitu gehien? Markatu dagokizun guztia.</legend>
+        <div class="choice">
+          <input type="checkbox" id="hard-unlabeled" name="barriers" value="unlabeled-elements">
+          <label for="hard-unlabeled">Etiketatu gabeko botoiak, estekak edo irudiak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-layout" name="barriers" value="cluttered-layout">
+          <label for="hard-layout">Orri nahasiak edo desordenatuak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-popups" name="barriers" value="popups-ads">
+          <label for="hard-popups">Leiho gainerakorrak, cookie-abisuak eta iragarkiak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-captcha" name="barriers" value="captchas">
+          <label for="hard-captcha">CAPTCHAk eta identitate-egiaztapenak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-forms" name="barriers" value="forms">
+          <label for="hard-forms">Formularioak eta erosketa-prozesuak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-dynamic" name="barriers" value="dynamic-content">
+          <label for="hard-dynamic">Abisatu gabe aldatzen edo mugitzen den edukia</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-media" name="barriers" value="undescribed-media">
+          <label for="hard-media">Deskribapenik gabeko irudiak eta bideoak</label>
+        </div>
+        <div class="other">
+          <label for="barriers-other">Aipatu ez dugun beste oztoporen bat? Gehitu hemen. (aukerakoa)</label>
+          <input type="text" id="barriers-other" name="barriers-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>13. Zer zaizu, oro har, zailagoa erabiltzeko? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="harder-web" name="harder" value="websites" required>
+          <label for="harder-web">Webguneak</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-apps" name="harder" value="mobile-apps">
+          <label for="harder-apps">Mugikorreko aplikazioak</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-both" name="harder" value="both">
+          <label for="harder-both">Biak dira berdin zailak</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-neither" name="harder" value="neither">
+          <label for="harder-neither">Biek nahiko ondo funtzionatzen dute</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>14. Zenbatero uzten duzu webgune edo aplikazio bat irisgarria ez delako? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="leave-daily" name="leave-frequency" value="daily" required>
+          <label for="leave-daily">Egunero</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-weekly" name="leave-frequency" value="weekly">
+          <label for="leave-weekly">Astean hainbat aldiz</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-monthly" name="leave-frequency" value="monthly">
+          <label for="leave-monthly">Hilean hainbat aldiz</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-rarely" name="leave-frequency" value="rarely">
+          <label for="leave-rarely">Gutxitan edo inoiz ez</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="unusable">15. Ba al dago zuretzat guztiz erabilezina den webgune edo aplikaziorik? (aukerakoa)</label>
+        <p class="hint" id="unusable-hint">Aipatu bururatzen zaizkizunak eta, gogoratzen baduzu, zerk eragozten dizun.</p>
+        <textarea id="unusable" name="unusable" rows="3" aria-describedby="unusable-hint"></textarea>
+      </div>
+
+      <div>
+        <label for="accessible-sites">16. Ba al dago zuretzat bereziki ondo funtzionatzen duen webgune edo aplikaziorik? (aukerakoa)</label>
+        <p class="hint" id="accessible-sites-hint">Aipatu zure gogokoenak eta, gogoratzen baduzu, zerk egiten dituen onak.</p>
+        <textarea id="accessible-sites" name="accessible-sites" rows="3" aria-describedby="accessible-sites-hint"></textarea>
+      </div>
+
+      <h2>Esperientzia ideala</h2>
+
+      <fieldset>
+        <legend>17. Imajinatu interneterako sarbideak ezin hobeto funtzionatzen duela zuretzat. Zein aldaketak izango lukete garrantzi handiena? Aukeratu gehienez hiru.</legend>
+        <div class="choice">
+          <input type="checkbox" id="ideal-described" name="ideal" value="everything-described">
+          <label for="ideal-described">Pantailan dagoen guztia argi eta automatikoki deskribatzen da</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-speed" name="ideal" value="same-speed">
+          <label for="ideal-speed">Gauzak ikusten duen pertsona baten abiadura berean egitea</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-clutter" name="ideal" value="skip-clutter">
+          <label for="ideal-clutter">Zuzenean behar dudanera joatea, nahaste artean bidea egin beharrik gabe</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-reliable" name="ideal" value="works-everywhere">
+          <label for="ideal-reliable">Webgune eta aplikazio guztiek besterik gabe funtzionatzea, garatzaileek ondo egitearen mende egon gabe</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-independent" name="ideal" value="no-sighted-help">
+          <label for="ideal-independent">Inoiz ez behar izatea ikusten duen pertsona bati laguntza eskatzea</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-natural" name="ideal" value="natural-interaction">
+          <label for="ideal-natural">Nire gailuarekin modu naturalean hitz egitea, komandoak buruz ikasi beharrean</label>
+        </div>
+        <div class="other">
+          <label for="ideal-other">Garrantzi handiagoa izango lukeen beste zerbait? Gehitu hemen. (aukerakoa)</label>
+          <input type="text" id="ideal-other" name="ideal-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>18. Hauetatik zeintzuk uste duzu guztiz bestela diseinatu beharko liratekeela pertsona itsuentzat, irisgarritasun-konponketekin adabakitu beharrean? Markatu dagozkizun guztiak.</legend>
+        <div class="choice">
+          <input type="checkbox" id="redesign-captcha" name="redesign" value="captchas">
+          <label for="redesign-captcha">CAPTCHAk eta segurtasun-kontrolak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-checkout" name="redesign" value="checkout">
+          <label for="redesign-checkout">Lineako erosketak eta ordainketa-prozesua</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-social" name="redesign" value="social-feeds">
+          <label for="redesign-social">Sare sozialetako jarioak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-documents" name="redesign" value="documents-pdfs">
+          <label for="redesign-documents">Dokumentuak eta PDFak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-maps" name="redesign" value="maps-navigation">
+          <label for="redesign-maps">Mapak eta nabigazioa</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-kiosks" name="redesign" value="kiosks-touchscreens">
+          <label for="redesign-kiosks">Ukipen-kioskoak eta autozerbitzu-makinak</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-none" name="redesign" value="none">
+          <label for="redesign-none">Hauetako bat ere ez - irisgarritasun-konponketekin nahikoa da</label>
+        </div>
+        <div class="other">
+          <label for="redesign-other">Diseinu guztiz berria behar duen beste zerbait? Gehitu hemen. (aukerakoa)</label>
+          <input type="text" id="redesign-other" name="redesign-other">
+        </div>
+      </fieldset>
+
+      <h2>Gure proiektuari buruz</h2>
+
+      <div class="project-intro">
+        <p>
+          Ohar labur bat azken galderen aurretik: gure taldea tresna bat
+          eraikitzen ari da. Adimen artifiziala erabiltzen du pantailan
+          dagoena ulertzeko eta audio argi bihurtzeko, webgune eta
+          aplikazioekin modu sinpleago eta zuzenago batean elkarreragin
+          dezazun, baita irisgarritasuna kontuan hartu gabe sortu zirenean
+          ere.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>19. Uste duzu horrelako tresna bat erabilgarria izango litzatekeela? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="useful-very" name="useful" value="very-useful" required>
+          <label for="useful-very">Oso erabilgarria</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-somewhat" name="useful" value="somewhat-useful">
+          <label for="useful-somewhat">Nahiko erabilgarria</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-unsure" name="useful" value="not-sure">
+          <label for="useful-unsure">Ez dakit - gehiago jakin beharko nuke</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-not" name="useful" value="not-useful">
+          <label for="useful-not">Seguru asko ez litzaidake erabilgarria izango</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>20. Ondo funtzionatuko balu, erabiliko zenuke? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="use-main" name="would-use" value="as-main-tool" required>
+          <label for="use-main">Bai, nire gailuak erabiltzeko modu nagusi gisa</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-alongside" name="would-use" value="alongside-screenreader">
+          <label for="use-alongside">Bai, nire pantaila-irakurlearekin batera</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-try" name="would-use" value="would-try">
+          <label for="use-try">Agian - lehenik probatu nahiko nuke</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-probably-not" name="would-use" value="probably-not">
+          <label for="use-probably-not">Seguru asko ez</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-no" name="would-use" value="no">
+          <label for="use-no">Ez, gustura nago nire oraingo konfigurazioarekin</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>21. Adimen artifizial bat zure pantaila deskribatzen eta harekin elkarreragiten laguntzen imajinatzen duzunean, zerk kezkatuko zintuzke? Markatu dagokizun guztia.</legend>
+        <div class="choice">
+          <input type="checkbox" id="worry-mistakes" name="ai-concerns" value="mistakes">
+          <label for="worry-mistakes">Gauzak gaizki deskribatzea nik jakin gabe</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-privacy" name="ai-concerns" value="privacy">
+          <label for="worry-privacy">Pribatutasuna - adimen artifizial batek nire mezuak, banku-kontuak edo datu pertsonalak ikustea</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-control" name="ai-concerns" value="losing-control">
+          <label for="worry-control">Kontrola galtzea - berak erabakitzea niretzat zer den garrantzitsua</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-speed" name="ai-concerns" value="too-slow">
+          <label for="worry-speed">Orain lan egiten dudan modua baino motelagoa izatea</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-dependence" name="ai-concerns" value="dependence">
+          <label for="worry-dependence">Huts egin, aldatu edo desager daitekeen tresna baten mende egotea</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-cost" name="ai-concerns" value="cost">
+          <label for="worry-cost">Kostua</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-none" name="ai-concerns" value="no-concerns">
+          <label for="worry-none">Ezer berezirik ez - probatu nahiko nuke</label>
+        </div>
+        <div class="other">
+          <label for="ai-concerns-other">Beste kezkaren bat? Kontatu hemen. (aukerakoa)</label>
+          <input type="text" id="ai-concerns-other" name="ai-concerns-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>22. Horrelako tresnek internet guztiz irisgarri egingo balute zuretzat, zer aldatuko litzateke zure bizitzan? (derrigorrezkoa)</legend>
+        <div class="choice">
+          <input type="radio" id="change-alot" name="life-change" value="a-lot" required>
+          <label for="change-alot">Asko - orain saihesten ditudan edo egin ezin ditudan gauzak zabalduko lizkidake</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-work" name="life-change" value="mainly-work">
+          <label for="change-work">Batez ere nire lana edo ikasketak</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-freetime" name="life-change" value="mainly-freetime">
+          <label for="change-freetime">Batez ere nire aisialdia eta zaletasunak</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-little" name="life-change" value="not-much">
+          <label for="change-little">Ez asko - dagoeneko ondo moldatzen naiz nire oraingo konfigurazioarekin</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-unsure" name="life-change" value="unsure">
+          <label for="change-unsure">Zaila da esatea</label>
+        </div>
+      </fieldset>
+
+      <h2>Amaitzeko</h2>
+
+      <div>
+        <label for="final-thoughts">23. Ba al dago galdetu ez dizugun zerbait garrantzitsurik? (aukerakoa)</label>
+        <p class="hint" id="final-hint">Edozer gauza - toki hau zurea da.</p>
+        <textarea id="final-thoughts" name="final-thoughts" rows="5" aria-describedby="final-hint"></textarea>
+      </div>
+
+      <button type="submit">Bidali inkesta</button>
+
+      <p class="status" role="status" aria-live="polite" id="form-status"></p>
+
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('survey-form');
+    const status = document.getElementById('form-status');
+
+    const requiredQuestions = [
+      { name: 'age', label: '1. galdera, adin-taldea', focus: 'age-under-18' },
+      { name: 'sight-today', label: '3. galdera, zure oraingo ikusmena', focus: 'sight-none' },
+      { name: 'sight-birth', label: '4. galdera, zure ikusmena jaiotzean', focus: 'birth-blind' },
+      { name: 'screenreader', label: '6. galdera, pantaila-irakurlea', focus: 'sr-voiceover' },
+      { name: 'comfort-time', label: '9. galdera, eroso sentitzeko denbora', focus: 'comfort-weeks' },
+      { name: 'difficulty', label: '10. galdera, sarea erabiltzeko erraztasuna', focus: 'ease-very-easy' },
+      { name: 'harder', label: '13. galdera, webguneak edo aplikazioak', focus: 'harder-web' },
+      { name: 'leave-frequency', label: '14. galdera, gune ez-irisgarriak uztea', focus: 'leave-daily' },
+      { name: 'useful', label: '19. galdera, tresna erabilgarria izango litzatekeen', focus: 'useful-very' },
+      { name: 'would-use', label: '20. galdera, erabiliko zenukeen', focus: 'use-main' },
+      { name: 'life-change', label: '22. galdera, zure bizitzan zer aldatuko litzatekeen', focus: 'change-alot' }
+    ];
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const missing = requiredQuestions.filter(function (q) {
+        return !form.querySelector('input[name="' + q.name + '"]:checked');
+      });
+
+      if (missing.length > 0) {
+        status.textContent = 'Inkesta ez da bidali. ' +
+          (missing.length > 1
+            ? 'Oraindik ' + missing.length + ' derrigorrezko galdera daude erantzun gabe.'
+            : 'Oraindik derrigorrezko galdera 1 dago erantzun gabe.') +
+          ' Lehenengoa hau da: ' + missing[0].label + '. Fokua galdera horretara mugitu da.';
+        document.getElementById(missing[0].focus).focus();
+        return;
+      }
+
+      const followUp = document.getElementById('follow-up');
+      const email = document.getElementById('email');
+      if (followUp.checked && !email.value.trim()) {
+        status.textContent = 'Inkesta ez da bidali. Zurekin harremanetan jartzea ' +
+          'onartu duzu, baina helbide elektronikoaren eremua hutsik dago. Fokua ' +
+          'helbide elektronikoaren eremura mugitu da: bete ezazu edo kendu marka jarraipen-laukiari.';
+        email.focus();
+        return;
+      }
+
+      const data = {};
+      new FormData(form).forEach(function (value, key) {
+        if (data[key] === undefined) {
+          data[key] = value;
+        } else if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      });
+
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      status.textContent = 'Zure inkesta bidaltzen...';
+
+      fetch('api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        status.textContent = 'Eskerrik asko! Zure inkesta behar bezala bidali da.';
+      }).catch(function () {
+        button.disabled = false;
+        status.textContent = 'Zerbaitek huts egin du eta zure inkesta ez da bidali. ' +
+          'Saiatu berriro: zure erantzunak hemen jarraitzen dute.';
+      });
+    });
+  </script>
+
+</body>
+</html>
