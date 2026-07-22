@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inhlolovo Yesipiliyoni Sokufinyeleleka</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    body {
+      font-family: 'Atkinson Hyperlegible', -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 1.625rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; margin-top: 2rem; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+    }
+    .skip-link:focus {
+      position: static;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #003366;
+      color: #ffffff;
+    }
+
+    .lang-switch {
+      text-align: right;
+      font-size: 1.25rem;
+    }
+
+    fieldset {
+      border: 2px solid #767676;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      padding: 1rem;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.75rem 0 0.25rem;
+      font-weight: bold;
+    }
+
+    .choice label {
+      display: inline;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .choice {
+      margin: 0.5rem 0;
+    }
+
+    .other {
+      margin-top: 1rem;
+    }
+    .other label {
+      font-weight: normal;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      font-size: 1.5rem;
+      padding: 0.6rem;
+      border: 2px solid #767676;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+
+    a:focus,
+    input:focus,
+    textarea:focus,
+    button:focus {
+      outline: 3px solid #0055cc;
+      outline-offset: 2px;
+    }
+
+    .hint {
+      font-weight: normal;
+      font-size: 1.375rem;
+      color: #444444;
+      margin: 0.25rem 0;
+    }
+
+    .project-intro {
+      border-left: 4px solid #003366;
+      background: #f2f6fa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    button {
+      font-size: 1.625rem;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      margin-top: 1.5rem;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #0055cc; }
+
+    .status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#survey-form">Yeqela ngqo efomini lenhlolovo</a>
+
+  <p class="lang-switch"><a href="index.html">Shintsha ulimi</a></p>
+
+  <header>
+    <h1>Inhlolovo Yesipiliyoni Sokufinyeleleka</h1>
+    <p>
+      Siyabonga ngokubamba iqhaza. Le nhlolovo inemibuzo engu-23 futhi
+      ithatha cishe imizuzu eyi-10 ukuyiqeda. Iningi lemibuzo lingelezinketho
+      eziningi. Imibuzo emakwe ngokuthi "ephoqelekile" kufanele iphendulwe
+      ngaphambi kokuthumela. Izimpendulo zakho ziyimfihlo; igama ne-imeyili
+      akuphoqelekile.
+    </p>
+  </header>
+
+  <main>
+    <form id="survey-form" novalidate>
+      <input type="hidden" name="language" value="zu">
+
+      <h2>Mayelana nawe</h2>
+
+      <div>
+        <label for="name">Igama lakho (akuphoqelekile)</label>
+        <input type="text" id="name" name="name" autocomplete="name">
+      </div>
+
+      <div>
+        <label for="email">I-imeyili yakho (akuphoqelekile)</label>
+        <p class="hint" id="email-hint">
+          Yabelana ngayo kuphela uma ulungile ngokuthi sixhumane nawe
+          ngemibuzo yokulandelela noma ukuhlola ithuluzi kamuva.
+        </p>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-hint">
+      </div>
+
+      <div class="choice">
+        <input type="checkbox" id="follow-up" name="follow-up" value="yes" aria-describedby="follow-up-hint">
+        <label for="follow-up">
+          Yebo, ningangithumelela imibuzo eminingi nge-imeyili noma ningimeme
+          enhlolokhonweni mayelana nomkhiqizo eniwakhayo.
+        </label>
+        <p class="hint" id="follow-up-hint">
+          Uma umaka leli bhokisi, bhala i-imeyili yakho ngenhla ukuze sikwazi
+          ukukuthola.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>1. Iyiphi iqembu lakho leminyaka? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="age-under-18" name="age" value="under-18" required>
+          <label for="age-under-18">Ngaphansi kweminyaka engu-18</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-18-29" name="age" value="18-29">
+          <label for="age-18-29">Kusukela ku-18 kuya ku-29</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-30-49" name="age" value="30-49">
+          <label for="age-30-49">Kusukela ku-30 kuya ku-49</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-50-64" name="age" value="50-64">
+          <label for="age-50-64">Kusukela ku-50 kuya ku-64</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="age-65-plus" name="age" value="65+">
+          <label for="age-65-plus">65 noma ngaphezulu</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="country">2. Uphendula usuka kuliphi izwe? (akuphoqelekile)</label>
+        <input type="text" id="country" name="country" autocomplete="country-name">
+      </div>
+
+      <h2>Mayelana nokubona kwakho</h2>
+
+      <fieldset>
+        <legend>3. Ungakuchaza kanjani ukubona kwakho njengamanje? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="sight-none" name="sight-today" value="totally-blind" required>
+          <label for="sight-none">Impumputhe ngokuphelele</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-partial" name="sight-today" value="partially-blind">
+          <label for="sight-partial">Impumputhe engxenyeni</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sight-private" name="sight-today" value="prefer-not-to-say">
+          <label for="sight-private">Ngikhetha ukungasho</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Ungakuchaza kanjani ukubona kwakho ngesikhathi uzalwa? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="birth-blind" name="sight-birth" value="blind" required>
+          <label for="birth-blind">Impumputhe kusukela ekuzalweni</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-partial" name="sight-birth" value="partially-sighted">
+          <label for="birth-partial">Ukubona okuyingxenye ngesikhathi uzalwa</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-sighted" name="sight-birth" value="fully-sighted">
+          <label for="birth-sighted">Ukubona okuphelele ngesikhathi uzalwa</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="birth-unsure" name="sight-birth" value="unsure">
+          <label for="birth-unsure">Angazi noma ngikhetha ukungasho</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Ingabe ukubona kwakho kuzinzile noma kuyashintsha? (akuphoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="vision-stable" name="vision-change" value="stable">
+          <label for="vision-stable">Kuzinzile</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-declining" name="vision-change" value="gradually-changing">
+          <label for="vision-declining">Kushintsha kancane kancane ngokuhamba kwesikhathi</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-varies" name="vision-change" value="varies">
+          <label for="vision-varies">Kuyahluka usuku nosuku</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="vision-unsure" name="vision-change" value="unsure">
+          <label for="vision-unsure">Angazi</label>
+        </div>
+      </fieldset>
+
+      <h2>Amathuluzi akho</h2>
+
+      <fieldset>
+        <legend>6. Yisiphi isifundi sesikrini osisebenzisa kakhulu? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="sr-voiceover" name="screenreader" value="voiceover" required>
+          <label for="sr-voiceover">VoiceOver (Apple)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-jaws" name="screenreader" value="jaws">
+          <label for="sr-jaws">JAWS</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-nvda" name="screenreader" value="nvda">
+          <label for="sr-nvda">NVDA</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-talkback" name="screenreader" value="talkback">
+          <label for="sr-talkback">TalkBack (Android)</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="sr-other" name="screenreader" value="other">
+          <label for="sr-other">Esinye noma lutho</label>
+        </div>
+        <div class="other">
+          <label for="screenreader-other">Isifundi sesikrini esihlukile? Sibhale lapha. (akuphoqelekile)</label>
+          <input type="text" id="screenreader-other" name="screenreader-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. Yiziphi izinsiza ozivamise ukuzisebenzisa? Maka konke okusebenzayo.</legend>
+        <div class="choice">
+          <input type="checkbox" id="dev-phone" name="devices" value="smartphone">
+          <label for="dev-phone">Ifoni ehlakaniphile</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-computer" name="devices" value="computer">
+          <label for="dev-computer">Ikhompyutha ye-desktop noma ye-laptop</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-tablet" name="devices" value="tablet">
+          <label for="dev-tablet">Ithebulethi</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-braille" name="devices" value="braille-display">
+          <label for="dev-braille">Isiboniso se-Braille</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-notetaker" name="devices" value="braille-notetaker">
+          <label for="dev-notetaker">Isithathi samanothi se-Braille (isibonelo BrailleNote noma ElBraille)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-glasses" name="devices" value="smart-glasses">
+          <label for="dev-glasses">Izibuko ezihlakaniphile noma ikhamera egqokwayo (isibonelo Envision, OrCam noma izibuko ze-Meta)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-daisy" name="devices" value="daisy-player">
+          <label for="dev-daisy">Umdlali we-DAISY noma we-audiobook (isibonelo Victor Reader)</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="dev-smart-speaker" name="devices" value="smart-speaker">
+          <label for="dev-smart-speaker">Isipikha esihlakaniphile (isibonelo Alexa noma Google Home)</label>
+        </div>
+        <div class="other">
+          <label for="devices-other">Enye insiza esingayifakanga? Yifake lapha. (akuphoqelekile)</label>
+          <input type="text" id="devices-other" name="devices-other">
+        </div>
+      </fieldset>
+
+      <h2>Ukufunda ukusebenzisa amathuluzi akho</h2>
+
+      <fieldset>
+        <legend>8. Wafunda kanjani ukusebenzisa isifundi sakho sesikrini? Maka konke okusebenzayo.</legend>
+        <div class="choice">
+          <input type="checkbox" id="learn-training" name="learning" value="formal-training">
+          <label for="learn-training">Ukuqeqeshwa okusemthethweni noma uhlelo lokuvuselela</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-self" name="learning" value="self-taught">
+          <label for="learn-self">Ngazifundisa ngokwami, ngokuzama nangamaphutha</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-online" name="learning" value="online-resources">
+          <label for="learn-online">Izifundo eziku-inthanethi, ama-podcast noma amavidiyo</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-people" name="learning" value="friends-family">
+          <label for="learn-people">Usizo oluvela kubangani, umndeni noma abanye abantu abayizimpumputhe</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="learn-school" name="learning" value="school-work">
+          <label for="learn-school">Esikoleni noma emsebenzini</label>
+        </div>
+        <div class="other">
+          <label for="learning-other">Ingabe wafunda ngenye indlela? Sitshele lapha. (akuphoqelekile)</label>
+          <input type="text" id="learning-other" name="learning-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. Kwathatha isikhathi esingakanani ize isifundi sakho sesikrini sizwakale sikhululekile? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="comfort-weeks" name="comfort-time" value="weeks" required>
+          <label for="comfort-weeks">Amasonto ambalwa</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-months" name="comfort-time" value="months">
+          <label for="comfort-months">Izinyanga ezimbalwa</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-year" name="comfort-time" value="about-a-year">
+          <label for="comfort-year">Cishe unyaka</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-years" name="comfort-time" value="several-years">
+          <label for="comfort-years">Iminyaka eminingana</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="comfort-never" name="comfort-time" value="still-not">
+          <label for="comfort-never">Namanje angikakhululeki ngokugcwele</label>
+        </div>
+      </fieldset>
+
+      <h2>Impilo yakho yansuku zonke</h2>
+
+      <fieldset>
+        <legend>10. Sekukonke, kulula kangakanani kuwe ukwenza izinto ku-inthanethi? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="ease-very-easy" name="difficulty" value="very-easy" required>
+          <label for="ease-very-easy">Kulula kakhulu</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-easy" name="difficulty" value="easy">
+          <label for="ease-easy">Kulula ngokwanele</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-neutral" name="difficulty" value="neutral">
+          <label for="ease-neutral">Akulula futhi akunzima</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-difficult" name="difficulty" value="difficult">
+          <label for="ease-difficult">Kunzima ngokwanele</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="ease-very-difficult" name="difficulty" value="very-difficult">
+          <label for="ease-very-difficult">Kunzima kakhulu</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. Yini isetho sakho samanje esiyiphatha kahle? Maka konke okusebenzayo.</legend>
+        <div class="choice">
+          <input type="checkbox" id="well-reading" name="works-well" value="reading">
+          <label for="well-reading">Ukufunda izihloko nombhalo omude</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-messaging" name="works-well" value="messaging">
+          <label for="well-messaging">I-imeyili nokuthumela imilayezo</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-familiar" name="works-well" value="familiar-sites">
+          <label for="well-familiar">Ukubheka amasayithi nezinhlelo zokusebenza engizaziyo kakade</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-shopping" name="works-well" value="shopping">
+          <label for="well-shopping">Ukuthenga nokukhokha</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-social" name="works-well" value="social-media">
+          <label for="well-social">Ezokuxhumana</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="well-work" name="works-well" value="work-documents">
+          <label for="well-work">Amadokhumenti namathuluzi omsebenzi noma okufunda</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. Yini evame ukukuvimba? Maka konke okusebenzayo.</legend>
+        <div class="choice">
+          <input type="checkbox" id="hard-unlabeled" name="barriers" value="unlabeled-elements">
+          <label for="hard-unlabeled">Izinkinobho, izixhumanisi noma izithombe ezingenamalebula</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-layout" name="barriers" value="cluttered-layout">
+          <label for="hard-layout">Amakhasi axakekile noma adidayo</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-popups" name="barriers" value="popups-ads">
+          <label for="hard-popups">Ama-popup, izaziso zamakhukhi nezikhangiso</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-captcha" name="barriers" value="captchas">
+          <label for="hard-captcha">Ama-CAPTCHA nokuhlolwa kobunikazi</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-forms" name="barriers" value="forms">
+          <label for="hard-forms">Amafomu nezinqubo zokuthenga</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-dynamic" name="barriers" value="dynamic-content">
+          <label for="hard-dynamic">Okuqukethwe okushintshayo noma okunyakazayo ngaphandle kwesexwayiso</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="hard-media" name="barriers" value="undescribed-media">
+          <label for="hard-media">Izithombe namavidiyo angachaziwe</label>
+        </div>
+        <div class="other">
+          <label for="barriers-other">Esinye isithiyo esisiphuthelwe? Sifake lapha. (akuphoqelekile)</label>
+          <input type="text" id="barriers-other" name="barriers-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>13. Yini ngokuvamile oyithola inzima kakhulu ukuyisebenzisa? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="harder-web" name="harder" value="websites" required>
+          <label for="harder-web">Amawebhusayithi</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-apps" name="harder" value="mobile-apps">
+          <label for="harder-apps">Izinhlelo zokusebenza zeselula</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-both" name="harder" value="both">
+          <label for="harder-both">Kokubili kunzima ngokulinganayo</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="harder-neither" name="harder" value="neither">
+          <label for="harder-neither">Kokubili kusebenza kahle ngokwanele</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>14. Kukangaki ushiya iwebhusayithi noma uhlelo lokusebenza ngoba lungafinyeleleki? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="leave-daily" name="leave-frequency" value="daily" required>
+          <label for="leave-daily">Nsuku zonke</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-weekly" name="leave-frequency" value="weekly">
+          <label for="leave-weekly">Izikhathi eziningana ngesonto</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-monthly" name="leave-frequency" value="monthly">
+          <label for="leave-monthly">Izikhathi eziningana ngenyanga</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="leave-rarely" name="leave-frequency" value="rarely">
+          <label for="leave-rarely">Kwesikhashana noma lutho</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="unusable">15. Ingabe kukhona amawebhusayithi noma izinhlelo zokusebenza ongakwazi nhlobo ukuzisebenzisa? (akuphoqelekile)</label>
+        <p class="hint" id="unusable-hint">Bala noma yikuphi okufika engqondweni futhi, uma ukhumbula, yini ekuvimbayo.</p>
+        <textarea id="unusable" name="unusable" rows="3" aria-describedby="unusable-hint"></textarea>
+      </div>
+
+      <div>
+        <label for="accessible-sites">16. Ingabe kukhona amawebhusayithi noma izinhlelo zokusebenza ezikusebenzela kahle ngokukhethekile? (akuphoqelekile)</label>
+        <p class="hint" id="accessible-sites-hint">Bala ozithandayo futhi, uma ukhumbula, yini ezenza zibe zinhle.</p>
+        <textarea id="accessible-sites" name="accessible-sites" rows="3" aria-describedby="accessible-sites-hint"></textarea>
+      </div>
+
+      <h2>Isipiliyoni esifanele</h2>
+
+      <fieldset>
+        <legend>17. Cabanga ukuthi ukufinyelela ku-inthanethi bekusebenza ngokuphelele kuwe. Yiziphi izinguquko ebeziyoba semqoka kakhulu? Khetha kufike kokuthathu.</legend>
+        <div class="choice">
+          <input type="checkbox" id="ideal-described" name="ideal" value="everything-described">
+          <label for="ideal-described">Konke okusesikrinini kuchazwa ngokucacile nangokuzenzakalelayo</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-speed" name="ideal" value="same-speed">
+          <label for="ideal-speed">Ukuqeda izinto ngokushesha njengomuntu obonayo</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-clutter" name="ideal" value="skip-clutter">
+          <label for="ideal-clutter">Ukuya ngqo kulokho engikudingayo, ngaphandle kokusebenza phakathi kwesixakaxaka</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-reliable" name="ideal" value="works-everywhere">
+          <label for="ideal-reliable">Wonke amasayithi nezinhlelo zokusebenza zisebenze nje, ngaphandle kokuncika kubathuthukisi ukuthi bakwenze kahle</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-independent" name="ideal" value="no-sighted-help">
+          <label for="ideal-independent">Ukungadingi ukucela usizo kumuntu obonayo</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="ideal-natural" name="ideal" value="natural-interaction">
+          <label for="ideal-natural">Ukukhuluma nedivayisi yami ngokwemvelo esikhundleni sokukhumbula imiyalo</label>
+        </div>
+        <div class="other">
+          <label for="ideal-other">Okunye okungaba semqoka kakhulu? Kufake lapha. (akuphoqelekile)</label>
+          <input type="text" id="ideal-other" name="ideal-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>18. Yiziphi kulezi zinto ocabanga ukuthi kufanele ziklanywe ngendlela ehluke ngokuphelele kubantu abayizimpumputhe, kunokuba zichitshiyelwe ukuze zifinyeleleke? Maka konke okusebenzayo.</legend>
+        <div class="choice">
+          <input type="checkbox" id="redesign-captcha" name="redesign" value="captchas">
+          <label for="redesign-captcha">Ama-CAPTCHA nokuhlolwa kokuphepha</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-checkout" name="redesign" value="checkout">
+          <label for="redesign-checkout">Ukuthenga ku-inthanethi nokukhokha</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-social" name="redesign" value="social-feeds">
+          <label for="redesign-social">Ama-feed ezokuxhumana</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-documents" name="redesign" value="documents-pdfs">
+          <label for="redesign-documents">Amadokhumenti nama-PDF</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-maps" name="redesign" value="maps-navigation">
+          <label for="redesign-maps">Amamephu nokuqondisa</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-kiosks" name="redesign" value="kiosks-touchscreens">
+          <label for="redesign-kiosks">Ama-kiosk okuthinta nemishini yokuzisebenzela</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="redesign-none" name="redesign" value="none">
+          <label for="redesign-none">Akukho kulezi - ukulungiswa kokufinyeleleka kwanele</label>
+        </div>
+        <div class="other">
+          <label for="redesign-other">Okunye okudinga ukuklama okusha ngokuphelele? Kufake lapha. (akuphoqelekile)</label>
+          <input type="text" id="redesign-other" name="redesign-other">
+        </div>
+      </fieldset>
+
+      <h2>Mayelana nephrojekthi yethu</h2>
+
+      <div class="project-intro">
+        <p>
+          Inothi elisheshayo ngaphambi kwemibuzo yokugcina: ithimba lethu
+          lakha ithuluzi elisebenzisa i-AI ukuqonda okusesikrinini futhi
+          likuguqule kube umsindo ocacile, ukuze ukwazi ukusebenzisana
+          namasayithi nezinhlelo zokusebenza ngendlela elula, eqondile,
+          ngisho noma engakhelwanga ngokucabangela ukufinyeleleka.
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>19. Ucabanga ukuthi ithuluzi elifana naleli lingaba wusizo? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="useful-very" name="useful" value="very-useful" required>
+          <label for="useful-very">Luwusizo kakhulu</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-somewhat" name="useful" value="somewhat-useful">
+          <label for="useful-somewhat">Luwusizo ngokwanele</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-unsure" name="useful" value="not-sure">
+          <label for="useful-unsure">Angiqinisekile - bengizodinga ukwazi okwengeziwe</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="useful-not" name="useful" value="not-useful">
+          <label for="useful-not">Cishe alusizo kimi</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>20. Uma lisebenza kahle, ungalisebenzisa? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="use-main" name="would-use" value="as-main-tool" required>
+          <label for="use-main">Yebo, njengendlela yami eyinhloko yokusebenzisa amadivayisi ami</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-alongside" name="would-use" value="alongside-screenreader">
+          <label for="use-alongside">Yebo, kanye nesifundi sami sesikrini</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-try" name="would-use" value="would-try">
+          <label for="use-try">Mhlawumbe - bengizofuna ukulizama kuqala</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-probably-not" name="would-use" value="probably-not">
+          <label for="use-probably-not">Cishe cha</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="use-no" name="would-use" value="no">
+          <label for="use-no">Cha, ngijabule ngesetho sami samanje</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>21. Uma ucabanga i-AI ichaza isikrini sakho futhi ikusiza ukusebenzisana naso, yini ebingakukhathaza? Maka konke okusebenzayo.</legend>
+        <div class="choice">
+          <input type="checkbox" id="worry-mistakes" name="ai-concerns" value="mistakes">
+          <label for="worry-mistakes">Ukuchaza izinto ngokungeyikho ngaphandle kokwazi kwami</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-privacy" name="ai-concerns" value="privacy">
+          <label for="worry-privacy">Ubumfihlo - i-AI ibona imilayezo yami, ibhange noma idatha yami yomuntu siqu</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-control" name="ai-concerns" value="losing-control">
+          <label for="worry-control">Ukulahlekelwa ukulawula - inquma esikhundleni sami ukuthi yini ebalulekile</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-speed" name="ai-concerns" value="too-slow">
+          <label for="worry-speed">Ukuhamba kancane kunendlela yami yamanje yokusebenza</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-dependence" name="ai-concerns" value="dependence">
+          <label for="worry-dependence">Ukuncika ethuluzini elingahluleka, lishintshe noma linyamalale</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-cost" name="ai-concerns" value="cost">
+          <label for="worry-cost">Izindleko</label>
+        </div>
+        <div class="choice">
+          <input type="checkbox" id="worry-none" name="ai-concerns" value="no-concerns">
+          <label for="worry-none">Akukho okuthize - bengingathanda ukulizama</label>
+        </div>
+        <div class="other">
+          <label for="ai-concerns-other">Okunye okukukhathazayo? Sitshele lapha. (akuphoqelekile)</label>
+          <input type="text" id="ai-concerns-other" name="ai-concerns-other">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>22. Uma amathuluzi afana naleli enza i-inthanethi ifinyeleleke ngokugcwele kuwe, yini ebengashintsha empilweni yakho? (ephoqelekile)</legend>
+        <div class="choice">
+          <input type="radio" id="change-alot" name="life-change" value="a-lot" required>
+          <label for="change-alot">Kuningi - kungavula izinto engizigwemayo noma engingakwazi ukuzenza</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-work" name="life-change" value="mainly-work">
+          <label for="change-work">Ikakhulukazi umsebenzi wami noma izifundo zami</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-freetime" name="life-change" value="mainly-freetime">
+          <label for="change-freetime">Ikakhulukazi isikhathi sami sokungenzi lutho nezinto engizithandayo</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-little" name="life-change" value="not-much">
+          <label for="change-little">Akukhulu - sengivele ngiphatha kahle ngesetho sami samanje</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="change-unsure" name="life-change" value="unsure">
+          <label for="change-unsure">Kunzima ukusho</label>
+        </div>
+      </fieldset>
+
+      <h2>Ukuphetha</h2>
+
+      <div>
+        <label for="final-thoughts">23. Ingabe kukhona okubalulekile esingakubuzanga? (akuphoqelekile)</label>
+        <p class="hint" id="final-hint">Noma yini nje - le ndawo ngeyakho.</p>
+        <textarea id="final-thoughts" name="final-thoughts" rows="5" aria-describedby="final-hint"></textarea>
+      </div>
+
+      <button type="submit">Thumela inhlolovo</button>
+
+      <p class="status" role="status" aria-live="polite" id="form-status"></p>
+
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('survey-form');
+    const status = document.getElementById('form-status');
+
+    const requiredQuestions = [
+      { name: 'age', label: 'Umbuzo 1, iqembu leminyaka', focus: 'age-under-18' },
+      { name: 'sight-today', label: 'Umbuzo 3, ukubona kwakho njengamanje', focus: 'sight-none' },
+      { name: 'sight-birth', label: 'Umbuzo 4, ukubona kwakho ngesikhathi uzalwa', focus: 'birth-blind' },
+      { name: 'screenreader', label: 'Umbuzo 6, isifundi sesikrini', focus: 'sr-voiceover' },
+      { name: 'comfort-time', label: 'Umbuzo 9, isikhathi sokukhululeka', focus: 'comfort-weeks' },
+      { name: 'difficulty', label: 'Umbuzo 10, ukulula kokusebenzisa i-webhu', focus: 'ease-very-easy' },
+      { name: 'harder', label: 'Umbuzo 13, amawebhusayithi noma izinhlelo zokusebenza', focus: 'harder-web' },
+      { name: 'leave-frequency', label: 'Umbuzo 14, ukushiya amasayithi angafinyeleleki', focus: 'leave-daily' },
+      { name: 'useful', label: 'Umbuzo 19, ukuthi ithuluzi lingaba wusizo yini', focus: 'useful-very' },
+      { name: 'would-use', label: 'Umbuzo 20, ukuthi ungalisebenzisa yini', focus: 'use-main' },
+      { name: 'life-change', label: 'Umbuzo 22, yini engashintsha empilweni yakho', focus: 'change-alot' }
+    ];
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const missing = requiredQuestions.filter(function (q) {
+        return !form.querySelector('input[name="' + q.name + '"]:checked');
+      });
+
+      if (missing.length > 0) {
+        status.textContent = 'Inhlolovo ayithunyelwanga. ' +
+          (missing.length > 1
+            ? 'Isibalo semibuzo ephoqelekile engakaphendulwa: ' + missing.length + '.'
+            : 'Kusekhona umbuzo owodwa ophoqelekile ongakaphendulwa.') +
+          ' Owokuqala uthi: ' + missing[0].label + '. Ukugxila kudluliselwe kulowo mbuzo.';
+        document.getElementById(missing[0].focus).focus();
+        return;
+      }
+
+      const followUp = document.getElementById('follow-up');
+      const email = document.getElementById('email');
+      if (followUp.checked && !email.value.trim()) {
+        status.textContent = 'Inhlolovo ayithunyelwanga. Wavuma ukuthi sixhumane ' +
+          'nawe, kodwa insimu ye-imeyili ayinalutho. Ukugxila kudluliselwe ensimini ' +
+          'ye-imeyili: yigcwalise noma ususe uphawu ebhokisini lokulandelela.';
+        email.focus();
+        return;
+      }
+
+      const data = {};
+      new FormData(form).forEach(function (value, key) {
+        if (data[key] === undefined) {
+          data[key] = value;
+        } else if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      });
+
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      status.textContent = 'Sithumela inhlolovo yakho...';
+
+      fetch('api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        status.textContent = 'Siyabonga! Inhlolovo yakho ithunyelwe ngempumelelo.';
+      }).catch(function () {
+        button.disabled = false;
+        status.textContent = 'Kukhona okungahambanga kahle futhi inhlolovo yakho ' +
+          'ayithunyelwanga. Zama futhi: izimpendulo zakho zisekhona lapha.';
+      });
+    });
+  </script>
+
+</body>
+</html>
